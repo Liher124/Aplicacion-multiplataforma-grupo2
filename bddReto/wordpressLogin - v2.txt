@@ -21,7 +21,7 @@
 </html>
 
 ********************	PHP DE LOGIN EN WORDPRESS	************************
- <?php
+<?php
  if(isset($_POST["enviar"])){  //Cuando demos al boton enviar realiza
       
         $server = 'localhost';
@@ -31,7 +31,7 @@
         
         try {
             $base = new PDO("mysql:host=$server;dbname=$database;", $username, $password);
-           // $base->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            $base->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             
             $sql="select * from usuarios where vchNombreUser= :login and vchPassword= :password";
             $resultado=$base->prepare($sql);
@@ -52,6 +52,11 @@
 
             if($numero_registro!=0){      //Cuando las filas de la tabla usuarios sea mayor a cero que inicie sesion y sen envien las sesiones a la otra pagina
                 session_start();                        //Cuando el inicio de sesion sea correcto mostrar el usuario y ir a la pestaña inicio
+
+                $sql1="update usuarios set dateUltimaConexion= CURRENT_TIMESTAMP() where intIdUser= $intIdUser"; //Sql para actualizar la hora 
+                $resultado1=$base->prepare($sql1);
+                $resultado1->execute();
+
                 $_SESSION["usuario"]=$_POST["login"];	//Creacion de sesion mediante el dato recogido del formulario
                 $_SESSION["id"]=$intIdUser;             //Creacion de sesion mediante el dato recogido de la base de datos
                 $_SESSION["rol"]=$vchRol;		// ** **
@@ -67,6 +72,6 @@
             die('Connection Failed: ' . $e->getMessage());
         }
         
-    } //Cierre llave isset
+    }
         
 ?>
