@@ -1,0 +1,64 @@
+********************	HTML DE LOGIN EN WORDPRESS	************************
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Login</title>
+  </head>
+  
+  <body>
+
+    <h1>Login</h1>
+    <span>or <a href="signup.php">SignUp</a></span>
+
+    <form action="" method="POST">
+      <p>Usuario</p><input name="login" type="text" placeholder="Añadir tu Usuario"/>
+      <p>Password</p><input name="password" type="password" placeholder="Añadir tu contraseña"/>
+      <input type="submit" value="Submit" name="enviar"/>
+    </form>
+    
+  </body>
+</html>
+
+********************	PHP DE LOGIN EN WORDPRESS	************************
+<?php
+ if(isset($_POST["enviar"])){  //Cuando demos al boton enviar realiza
+      
+        $server = 'localhost';
+        $username = 'user_wordpress';
+        $password = 'pass_wordpress';
+        $database = 'wordpress';
+        
+        try {
+            $base = new PDO("mysql:host=$server;dbname=$database;", $username, $password);
+            $base->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            
+            $sql="select * from usuarios where vchNombreUser= :login and vchPassword= :password";
+            $resultado=$base->prepare($sql);
+            $login=htmlentities(addslashes($_POST["login"]));
+            $password=htmlentities(addslashes($_POST["password"]));
+            
+            $resultado->bindValue(":login", $login);
+            $resultado->bindValue(":password", $password);
+        
+            $resultado->execute();
+            
+            $numero_registro=$resultado->rowCount(); 
+        
+            if($numero_registro!=0){    
+                session_start();        //Cuando el inicio de sesion sea correcto mostrar el usuario y ir a la pestaña inicio
+                $_SESSION["usuario"]=$_POST["login"];
+                header('Location: '. "http://www.grupo2ciber.com/?page_id=199");
+
+            }else{
+//                 header("location:login.php");
+                echo "Error. Usuario o contraseña incorrectos";
+            }
+        
+        } catch (PDOException $e) {
+            die('Connection Failed: ' . $e->getMessage());
+        }
+        
+    } //Cierre llave isset
+        
+?>
