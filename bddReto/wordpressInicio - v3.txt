@@ -1,0 +1,43 @@
+<?php 
+session_start(); 
+$rol="empleado";
+if($_SESSION["rol"] === $rol) {  //accede si el usuario es administrador
+
+?>
+<html>
+     <head>
+        <title>Inicio</title>
+     
+<style>
+
+.page-id-199 #menu-item-585 { 
+display:none;
+}
+
+.page-id-199 #menu-item-733 {
+display:none;
+}
+
+
+</style>
+
+?>
+     </head>
+     <body>
+
+<?php
+
+echo "Usuario: ".$_SESSION["usuario"];
+echo "Id: ".$_SESSION["id"];
+echo "Rol: ".$_SESSION["rol"];
+
+} else {
+
+?>
+
+
+<?php
+
+
+}
+?>
