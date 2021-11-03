@@ -1,0 +1,22 @@
+<!-- HTML *************   -->
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Gastos</title>
+  <style>
+        input { 
+	     width: 50%; 
+	     margin-bottom: 5px; 
+        }
+  </style>
+  </head>
+  <body>
+
+    <h1>Gastos</h1>
+
+<!-- HMTL FORMULARIO ELEGUIR GASTOS O DIETA -->
+<form action="" method="POST">
+      <input type="submit" value="Añadir Gastos" name="gastosBottom"/>
+      <input type="submit" value="Añadir Dieta" name="dietaBotton"/>
+</form>

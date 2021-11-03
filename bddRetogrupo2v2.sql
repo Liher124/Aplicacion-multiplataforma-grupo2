@@ -7,6 +7,8 @@ use wordpress;
 /*****************************
 CREACION DE TABLAS
 *****************************/ 
+SET FOREIGN_KEY_CHECKS=0;
+SET SQL_SAFE_UPDATES=0;	
 
 /*		Borrado de tablas 	*/
 drop table if exists empleados;
@@ -26,7 +28,7 @@ create table empleados (
 	vchNombre varchar(20) not null,
     vchApellido1 varchar(20) not null,
     vchApellido2 varchar(20),
-    vchCorreo varchar(20) not null,
+    vchCorreo varchar(50) not null,
     vchDni varchar(9) not null unique,
     vchEspecialidad varchar(20)not null,
     primary key (intIdEmpleado)
@@ -37,13 +39,13 @@ create table usuarios (
 	vchEmail varchar(50) unique not null,
     vchNombreUser varchar(50) unique not null,
     vchPassword varchar(255) not null,
-    vchRol char(1) not null,
+    vchRol varchar(20) not null,
     imagen mediumblob,
     dateUltimaConexion datetime,
-    dateFechaActual datetime,
+    vchEstado varchar(50),
     primary key (intIdUser)
 );
-select * from usuarios;
+
 /*
 create table tarjeta (
 	intIdNumeroTarjeta int(10) not null auto_increment,
@@ -68,19 +70,19 @@ create table proyecto (
 );
 
 create table gastos (
-	intIdGasto int(10) not null auto_increment,
-    intIdEmpleado int(10) not null,
-    intIdDepartamento int(10) not null,
-    intIdProyecto int(10) not null,
-    intIdViaje int(10),
-    dateFechaHoraGasto date not null,
-	vchDieta varchar(20),
-	intCantidad varchar(10),
-    vchMedioTransporte varchar(20),
-    doubleKmRecorrido double(5,2),
-    doublePeaje double(5,2),
-    doubleParking double(5,2),
-    doubleCombustible double(5,2),
+	intIdGasto int(5) not null auto_increment,
+    intIdEmpleado int(5),
+    intIdDepartamento int(5),
+    intIdProyecto int(5),
+    intIdViaje int(5),
+    dateFechaHoraGasto datetime,
+	vchDieta varchar(50),
+	doubleCantidadTotalGasto double(10,2),
+    vchMedioTransporte varchar(50),
+    doubleKmRecorrido double(10,2),
+    doublePeaje double(6,2),
+    doubleParking double(6,2),
+    doubleCombustible double(6,2),
     primary key (intIdGasto)
 );
 
@@ -138,20 +140,22 @@ delete from gastos;
 delete from proyecto;
 delete from viajes;
 
-
-
 /*	Insertar datos tabla empleados */ 
 ALTER TABLE empleados AUTO_INCREMENT=1;
 insert into empleados (intIdUser,vchNombre,vchApellido1,vchApellido2,vchCorreo,vchEspecialidad,vchDni) values 
-(1,"Pablo","Alvarez","Martinez","pabloAlv@gmail.com","Desarrollador","7892684B"),
-(2,"Jose","Manuel","Nevada","joseMan@gmail.com","Abogado","7134684X");
+(1,"Liher","Ramoneda","Vicente","liher.ramoneda@maristak.net","Desarrollador","7892684B"),
+(2,"Liher","Ramoneda","Vicente","liher.ramoneda@gmail.com","Informatico","9138384X"),
+(3,"Jon","Herrero","Nevada","jon.herrero@maristak.net","Abogado","7634684F"),
+(4,"Aitor","Manuel","","aitor.manuel@gmail.com","Desarrollador","3464684A"),
+(5,"Xabi","Parra","Navarro","xabi.parra@gmail.com","Abogado","7134684J"),
+(6,"Jose","Manuel","Nevada","joseMan@gmail.com","Informatico","7134684V");
+select * from empleados;
 
 /*	Insertar datos tabla departamento */ 
 ALTER TABLE departamento AUTO_INCREMENT=1;
 insert into departamento (vchNombre) values 
-("Desarrollo"),
-("Abogados");
-
+("Desarrollo"),("Abogados"),("Mantenimiento"),("Transporte"),("Programacion");
+select * from departamento;
 
 /*	Insertar datos tabla gastos */ 
 /*ALTER TABLE gastos AUTO_INCREMENT=1;
@@ -160,7 +164,7 @@ doublePeaje,doubleParking,doubleCombustible) values
 ();
 /*
 
-/*	Insertar datos tabla proyecto */ 
+/*	Insertar datos tabla viaje */ 
 ALTER TABLE viajes AUTO_INCREMENT=1;
 insert into viajes (vchPais,vchCiudad,dateFechaInicio,dateFechaFin) values 
 ("España","Bilbao",'2021-08-30','2021-12-30'),
@@ -170,5 +174,8 @@ insert into viajes (vchPais,vchCiudad,dateFechaInicio,dateFechaFin) values
 /*	Insertar datos tabla proyecto */ 
 ALTER TABLE proyecto AUTO_INCREMENT=1;
 insert into proyecto (vchNombre,dateFechaInicio,dateFechaFin,doublePresupuesto) values 
-("Alias",'2021-07-30','2021-11-30',19040.20),
-("Beta",'2021-01-01','2021-11-30',59010.30);
+("Ala",'2021-07-30','2021-11-30',19040.20),
+("Beta",'2021-01-01','2021-11-30',59010.30),
+("Delta",'2021-01-01','2021-11-30',59010.30),
+("Gamma",'2021-01-01','2021-11-30',59010.30);
+select * from proyecto;

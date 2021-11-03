@@ -1,0 +1,91 @@
+<!-- HTML *************   -->
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Gastos</title>
+  <style>
+        input { 
+	     width: 80%; 
+	     margin-bottom: 5px; 
+        }
+  </style>
+  </head>
+  <body>
+
+    <h1>Gastos</h1>
+
+<form action="" method="POST">
+    <p>ID Empleado: <input name="idEmpleado" type="number" min="0" max="99999" placeholder="Añade el id del Empleado"/><p/>
+    <p>ID Departamento: <input name="idDepartamento" type="number" min="0" max="99999" placeholder="Añade el id del Departamento"/><p/>
+    <p>ID Proyecto: <input name="idProyecto" type="number" min="0" max="99999" placeholder="Añade el id del Proyecto"/><p/>
+    <p>ID Viaje: <input name="idViaje" type="number" min="0" max="99999" placeholder="Añade el id del Viaje"/><p/>
+    <p>Dieta: <input name="diEtaF" type="text" maxlength="50" placeholder="Añadir dieta"/><p/>
+    <p>Medio Transporte: <input name="transporteF" type="text" maxlength="50" placeholder="Añadir el medio de transporte"/><p/>
+    <p>Kilometros Recorridos: <input name="kmF" type="number" min="0" max="99999" placeholder="Añadir los kilometros recorridos"/><p/>
+    <p>Peaje: <input name="peajeF" type="number" min="0" step="0.01" max="999999" placeholder="Añadir el precio del peaje"/><p/>
+    <p>Parking: <input name="parkingF" type="number" min="0" step="0.01" max="9999" placeholder="Añadir el precio del parking"/><p/>
+    <p>Combustible: <input name="combustibleF" type="number" min="0" step="0.01" max="99999" placeholder="Añadir el precio del combustible"/><p/>
+
+      <input type="submit" value="Subir datos" name="gastosBF">
+</form>
+<!--  PHP INSERTAR GASTOS  -->
+<?php
+session_start();
+
+
+if(isset($_POST["gastosBF"])){
+
+    $server = 'localhost';
+    $username = 'user_wordpress';
+    $password = 'pass_wordpress';
+    $database = 'wordpress';
+
+
+    try {
+	$base = new PDO("mysql:host=$server;dbname=$database;", $username, $password);
+	$base->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+
+$sql="INSERT INTO gastos (intIdEmpleado, intIdDepartamento, intIdProyecto, intIdViaje, dateFechaHoraGasto, vchDieta, doubleCantidadTotalGasto, vchMedioTransporte, doubleKmRecorrido, doublePeaje, doubleParking, doubleCombustible) VALUES (:idEmp, :idDept, :idProy, :idViaj, CURRENT_TIMESTAMP(), :dietV, :cantd, :transpo, :km, :peaje, :parkin, :combust)";
+
+
+            $resultado = $base->prepare($sql);
+            $resultado->bindValue(':idEmp', $_POST['idEmpleado']);
+            $resultado->bindValue(':idDept', $_POST['idDepartamento']);
+            $resultado->bindValue(':idProy', $_POST['idProyecto']);
+            $resultado->bindValue(':idViaj', $_POST['idViaje']);
+            $resultado->bindValue(':dietV', $_POST['diEtaF']);
+
+$precioKmTotal=$_POST['kmF']*0.3;
+$totalFact=$_POST['peajeF']+$_POST['parkingF']+$_POST['combustibleF']+$precioKmTotal;
+$cantidaTotal=totalFact;
+
+            $resultado->bindValue(':cantd', $_POST['cantidadF']);
+            $resultado->bindValue(':transpo', $_POST['transporteF']);
+            $resultado->bindValue(':km', $_POST['kmF']);
+            $resultado->bindValue(':peaje', $_POST['peajeF']);
+            $resultado->bindValue(':parkin', $_POST['parkingF']);
+            $resultado->bindValue(':combust', $_POST['combustibleF']);
+
+            if ($resultado->execute()) {
+                $message = "Gastos Añadidos";
+                echo "$message";
+            } else {
+                $message = "Gastos no añadidos";
+                echo "$message";
+            }
+
+
+} catch (PDOException $e) {
+        die('Connection Failed: ' . $e->getMessage());
+    } //catch
+
+}//btn gastos form
+
+?>
+
+<!-- HTML CIERRE DEL BODY Y HTML   -->
+  </body>
+</html>
+

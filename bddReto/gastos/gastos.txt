@@ -1,0 +1,127 @@
+<!-- HTML *************   -->
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Gastos</title>
+  <style>
+        input { 
+	     width: 50%; 
+	     margin-bottom: 5px; 
+        }
+  </style>
+  </head>
+  <body>
+
+    <h1>Gastos</h1>
+
+<!-- HMTL FORMULARIO ELEGUIR GASTOS O DIETA -->
+<form action="" method="POST">
+      <input type="submit" value="Añadir Gastos" name="gastosBottom"/>
+      <input type="submit" value="Añadir Dieta" name="dietaBotton"/>
+</form>
+
+<!-- PHP TODO -->
+<?php
+session_start();
+
+if(isset($_POST["gastosBottom"])){ //boton del primer formulario eleguir entre "Gastos y Dieta"
+
+
+?>
+
+<!-- HMTL AÑADIR DATOS GASTOS -->
+
+<form action="" method="POST">
+    <p>ID Empleado: <input name="idEmpleado" type="number" min="0" max="99999" placeholder="Añade el id del Empleado"/><p/>
+    <p>ID Departamento: <input name="idDepartamento" type="number" min="0" max="99999" placeholder="Añade el id del Departamento"/><p/>
+    <p>ID Proyecto: <input name="idProyecto" type="number" min="0" max="99999" placeholder="Añade el id del Proyecto"/><p/>
+    <p>ID Viaje: <input name="idViaje" type="number" min="0" max="99999" placeholder="Añade el id del Viaje"/><p/>
+
+    <p>Cantidad: <input name="cantidadF" type="number" min="0" max="99999" placeholder="Añadir la cantidad"/><p/>
+    <p>Medio Transporte: <input name="transporteF" type="text" maxlength="50" placeholder="Añadir el medio de transporte"/><p/>
+    <p>Kilometros Recorridos: <input name="kmF" type="number" min="0" max="" placeholder="Añadir los kilometros recorridos"/><p/>
+    <p>Peaje: <input name="peajeF" type="number" min="0" step="0.01" max="99999999" placeholder="Añadir el precio del peaje"/><p/>
+    <p>Parking: <input name="parkingF" type="number" min="0" step="0.01" max="999999" placeholder="Añadir el precio del parking"/><p/>
+    <p>Combustible: <input name="combustibleF" type="number" min="0" step="0.01" max="999999" placeholder="Añadir el precio del combustible"/><p/>
+
+      <input type="submit" value="Subir datos" name="gastosBF">
+</form>
+
+<?php
+
+    $server = 'localhost';
+    $username = 'user_wordpress';
+    $password = 'pass_wordpress';
+    $database = 'wordpress';
+
+    try {
+	$base = new PDO("mysql:host=$server;dbname=$database;", $username, $password);
+	$base->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+
+$sql="insert into gastos (intIdEmpleado, intIdDepartamento, intIdProyecto, intIdViaje, dateFechaHoraGasto, vchDieta, intCantidad, vchMedioTransporte, doubleKmRecorrido, doublePeaje, doubleParking, doubleCombustible) values (:idEmp, :idDept, :idProy, :idViaj, 'CURRENT_TIMESTAMP()', '', :cantd, :transpo, :km, :peaje, :parkin, :combust);
+
+
+            $resultado = $base->prepare($sql);
+            $resultado->bindValue(':idEmp', $_POST['idEmpleado']);
+            $resultado->bindValue(':idDept', $_POST['idDepartamento']);
+            $resultado->bindValue(':idProy', $_POST['idProyecto']);
+            $resultado->bindValue(':idViaj', $_POST['idViaje']);
+
+            $resultado->bindValue(':cantd', $_POST['cantidadF']);
+            $resultado->bindValue(':transpo', $_POST['transporteF']);
+            $resultado->bindValue(':km', $_POST['kmF']);
+            $resultado->bindValue(':peaje', $_POST['peajeF']);
+            $resultado->bindValue(':parkin', $_POST['parkingF']);
+            $resultado->bindValue(':combust', $_POST['combustibleF']);
+
+            if ($resultado->execute()) {
+                $message = "Gastos Añadidos";
+                echo "$message";
+            } else {
+                $message = "Gastos no añadidos";
+                echo "$message";
+            }
+
+
+} catch (PDOException $e) {
+        die('Connection Failed: ' . $e->getMessage());
+    } //catch
+
+
+}  //isset gastos
+
+
+
+
+
+
+
+if(isset($_POST["dietaBotton"])){
+
+?>
+
+<!-- HMTL AÑADIR DATOS DIETA -->
+    <form action="" method="POST">
+      <p>Dieta:
+      <select id="dietaId" name="dietaF" >
+             <option selected="true" disabled="disabled">Tipo de Usuario</option>
+             <option value="menosDias">Menos que 4 dias</option>
+             <option value="masDias">Mayor que 4 dias</option>
+      </select><p/>
+
+      <input type="submit" value="Send" name="dieta">
+    </form>
+
+
+
+<?php
+} //isset dieta boton
+?>
+
+<!-- HTML *************   -->
+  </body>
+</html>
+
+

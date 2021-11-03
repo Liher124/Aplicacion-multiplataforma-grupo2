@@ -8,18 +8,17 @@
   <body>
 
     <h1>Registro de Usuario</h1>
-    <span>or <a href="http://www.grupo2ciber.com/">Iniciar Sesion</a></span>
 
     <form action="" method="POST">
-      <p>Email: <input name="email" type="text" maxlength="50" placeholder="Enter your email"/><p/>
-      <p>Usuario: <input name="username" type="text" maxlength="50" placeholder="Enter your user name"/><p/>
-      <p>Contrasena: <input name="password" type="password" minlength="8" maxlength="255" placeholder="Confirm Password"/><p/>
+      <p>Email: <input name="email" type="text" maxlength="50" placeholder="Enter your email"/></p>
+      <p>Usuario: <input name="username" type="text" maxlength="50" placeholder="Enter your user name"/></p>
+      <p>Contrasena: <input name="password" type="password" minlength="8" maxlength="255" placeholder="Confirm Password"/></p>
       <p>Rol: 
       <select id="rolId" name="rol" >
              <option selected="true" disabled="disabled">Tipo de Usuario</option>
              <option value="administrador">administrador</option>
              <option value="empleado">empleado</option>
-      </select><p/>
+      </select></p>
 
       <input type="submit" value="Send" name="enviLog">
     </form>
@@ -46,8 +45,8 @@ if(isset($_POST["enviLog"])){  //Nombre del boton del html
 
         $message = '';  //El dato de message se rellena con la variable de abajo si se ha creado el Usuario o no
         
-            $sql = "INSERT INTO usuarios (vchEmail, vchNombreUser, vchPassword, vchRol) VALUES (:email, :username,
-            :password, :rol)";
+            $sql = "INSERT INTO usuarios (vchEmail, vchNombreUser, vchPassword, vchRol, vchEstado) VALUES (:email, :username,
+            :password, :rol, 'activado')";
             $stmt = $base->prepare($sql);
             $stmt->bindValue(':email', $_POST['email']);
             $stmt->bindValue(':username', $_POST['username']);
