@@ -40,7 +40,7 @@ create table usuarios (
     vchNombreUser varchar(50) unique not null,
     vchPassword varchar(255) not null,
     vchRol varchar(20) not null,
-    imagen mediumblob,
+    imagen longblob,
     dateUltimaConexion datetime,
     vchEstado varchar(50),
     primary key (intIdUser)
@@ -143,7 +143,7 @@ delete from viajes;
 /*	Insertar datos tabla empleados */ 
 ALTER TABLE empleados AUTO_INCREMENT=1;
 insert into empleados (intIdUser,vchNombre,vchApellido1,vchApellido2,vchCorreo,vchEspecialidad,vchDni) values 
-(1,"Liher","Ramoneda","Vicente","liher.ramoneda@maristak.net","Desarrollador","7892684B"),
+(1,"Liher","Ramoneda","Vicente","liher.ramoneda@maristak.net","Desarrollador","7892667B"),
 (2,"Liher","Ramoneda","Vicente","liher.ramoneda@gmail.com","Informatico","9138384X"),
 (3,"Jon","Herrero","Nevada","jon.herrero@maristak.net","Abogado","7634684F"),
 (4,"Aitor","Manuel","","aitor.manuel@gmail.com","Desarrollador","3464684A"),

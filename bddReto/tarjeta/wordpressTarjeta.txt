@@ -145,9 +145,11 @@ $activa= $json->current_card;
 $num_tarjeta_in= $json->card_international;
 $num_tarjeta_eu = $json->card_europe;
 
+$internacional="INTERNATIONAL";
+$_SESSION["activa"]=$activa;
 
 
-if($activa=="INTERNATIONAL"){
+if($activa==$internacional){
 
 echo "<html><div class='card-group'>
 <div class='card'>
@@ -198,10 +200,12 @@ echo "<html><div class='card-group'>
 
 <?php
 if(isset($_POST['cambiar'])){
-  if($activa=="INTERNATIONAL"){
+  if($activa==$internacional){
      file_get_contents('http://10.122.27.162:4000/enablecard1/user1/EUROPE');
+     header ('Location: ' . $_SERVER['REQUEST_URI']);
    }else{
      file_get_contents('http://10.122.27.162:4000/enablecard1/user1/INTERNATIONAL');
+     header ('Location: ' . $_SERVER['REQUEST_URI']);
    }
 
 }

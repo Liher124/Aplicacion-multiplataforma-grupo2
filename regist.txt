@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Registro de Usuarios</title>
+
+<style>
+ @import url("https://fonts.googleapis.com/css2?family=Sansita+Swashed:wght@600&display=swap");
+
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(45deg, greenyellow, dodgerblue);
+  background-repeat: no-repeat;
+  font-family: "Sansita Swashed", cursive;
+}
+
+.center {
+  position: relative;
+  padding: 0px 50px;
+  background: #fff;
+  border-radius: 10px;
+}
+.center h1 {
+  font-size: 2em;
+  border-left: 5px solid dodgerblue;
+  padding: 0px;
+  color: #000;
+  letter-spacing: 5px;
+  margin-bottom: 40px;
+  font-weight: bold;
+  padding-left: 10px;
+}
+.center .inputbox {
+  position: relative;
+  width: 300px;
+  height: 50px;
+  margin-bottom: 25px;
+}
+.center .inputbox input {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  border: 2px solid #000;
+  outline: none;
+  background: none;
+  padding: 10px;
+  border-radius: 10px;
+  font-size: 1.2em;
+}
+.center .inputbox:last-child {
+  margin-bottom: 0;
+}
+.center .inputbox span {
+  position: absolute;
+  top: 14px;
+  left: 20px;
+  font-size: 1em;
+  transition: 0.6s;
+  font-family: sans-serif;
+}
+.center .inputbox input:focus ~ span,
+.center .inputbox input:valid ~ span {
+  transform: translateX(-13px) translateY(-35px);
+  font-size: 1em;
+}
+.center .inputbox [type="submit"] {
+  width: 50%;
+  background: dodgerblue;
+  color: #fff;
+  border: #fff;
+}
+.center .inputbox:hover [type="submit"] {
+  background: linear-gradient(45deg, greenyellow, dodgerblue);
+}
+
+h5 {
+  font-size: 5px;
+  border-left: 5px solid #F39C12;
+  color: #000;
+  letter-spacing: 5px;
+  margin-bottom: 5px;
+  font-weight: bold;
+  padding-left: 10px;
+}
+
+h5.textoMess {
+  text-align:left;
+  font-size: 15px;
+  border-left: 5px solid #641E16;
+  color: #000;
+  letter-spacing: 5px;
+  margin-bottom: 5px;
+  font-weight: bold;
+  padding-left: 10px;
+}
+
+
+.inputbox select {
+  background-color: dodgerblue;
+background: linear-gradient(45deg, greenyellow, dodgerblue);
+  color: black;
+  border: #fff;
+  padding: 12px;
+  width: 200px;
+  font-size: 20px;
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
+  -webkit-appearance: button;
+  appearance: button;
+  outline: none;
+}
+
+h6.adda{
+  text-align:left;
+  font-size: 15px;
+  color: #0085FF;
+  letter-spacing: 5px;
+  margin-bottom: 10px;
+  font-weight: bold;
+
+}
+
+
+</style>
+   
+  </head>
+  <body>
+
+  <div class="center">
+    <h1>Registro de Usuario</h1>
+    
+    <form class="formR" action="" method="POST" enctype="multipart/form-data">
+    <h5>Email</h5>
+      <div class="inputbox">
+          <input name="email" type="text" maxlength="50" placeholder="Introducir email"/>
+      </div>
+
+     <h5>Usuario</h5>
+      <div class="inputbox">
+           <input name="username" type="text" maxlength="50" placeholder="Añadir nombre de usuario"/><p/>
+      </div>
+
+      <h5>Contraseña</h5>
+      <div class="inputbox">
+           <input name="password" type="password" minlength="8" maxlength="255" placeholder="Añadir contraseña"/>
+      </div>
+
+      <h5>Rol</h5>
+      <div class="inputbox">
+      <select id="rolId" name="rol" >
+             <option selected="true" disabled="disabled">Tipo de Usuario</option>
+             <option value="administrador">administrador</option>
+             <option value="empleado">empleado</option>
+      </select>
+      </div>
+
+      <h5>Añadir imagen de usuario</h5>
+      <div class="inputbox">
+           <input type="file" name="imageF"/>
+      </div>
+
+      <div class="inputbox">
+           <input type="submit" value="Enviar" name="enviLog">
+      </div>
+    </form>
+    </br>
+
+
+
+
+<?php
+session_start();
+$use=$_SESSION["usuario"];
+$ro=$_SESSION["rol"];
+?>
+
+<!-- ***********HTML ************ -->
+<div class="perfR">
+<h5 class="textoMess"><?php echo "Usuario conectado --> ".$use . "</br> Rol --> ".$ro; ?></h5>
+</div>
+
+
+<?php
+$rol="administrador";
+
+if(isset($_POST["enviLog"])){  //Nombre del boton del html
+    
+    $server = 'localhost';
+    $username = 'user_wordpress';
+    $password = 'pass_wordpress';
+    $database = 'wordpress';
+
+    try {
+        $base = new PDO("mysql:host=$server;dbname=$database;", $username, $password);
+        $base->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+        $imfget=getimagesize($_FILES["image"]);
+        
+            $sql = "INSERT INTO usuarios (vchEmail, vchNombreUser, vchPassword, vchRol, imagen, vchEstado) VALUES (:email, :username,
+            :password, :rol, :img, 'activado')";
+            $stmt = $base->prepare($sql);
+            $stmt->bindValue(':email', $_POST['email']);
+            $stmt->bindValue(':username', $_POST['username']);
+
+            $contra= $_POST['password'];
+            $contrasenaHash= password_hash($contra, PASSWORD_DEFAULT);
+
+            $stmt->bindValue(':password', $contrasenaHash);
+
+            $stmt->bindValue(':rol', $_POST['rol']);
+            $stmt->bindValue(':img', $imfget);
+
+
+            if ($stmt->execute()) {
+              $message = 'Usuario creado correctamente ';
+              echo "<h6 class='adda' >" . $message . "</h6>";
+            
+            } else {
+                $message = 'Problema al crear el usuario';
+                echo "$message";
+            }
+      
+        
+    } catch (PDOException $e) {
+        die('Connection Failed: ' . $e->getMessage());
+    } //catch
+} //isset
+
+?>
+
+
+
+<!-- html cierre -->
+</div>
+   </body>
+</html>
