@@ -22,3 +22,314 @@
       <input type="submit" value="Send" name="dieta">
     </form>
 
+
+
+<form name="login" method="post" action="">
+
+<input type="hidden" name="enviado" value="1">
+
+
+
+<h3>
+
+Id Empleado:<br><input type="number" min="0" name="idempleado" required="">
+
+</h3>
+
+<h3>
+
+Id Proyecto:<br><input type="number" min="0" name="idproyecto" required="">
+
+</h3>
+
+
+
+
+<h3>
+
+Id Departamneto:<br><input type="number" min="0" name="iddepartamneto" required="">
+
+</h3>
+
+
+<h3>
+
+Ciudad:<br><input type="text" min="0" name="ciudad" required="">
+
+</h3>
+<h3>
+
+Pais:<br><input type="text" min="0" name="pais" required="">
+
+</h3>
+
+
+<h3>
+
+Fecha Inicio :<input type="date" name="fecini" required="">
+
+</h3>
+
+<h3>
+
+Fecha Fecha Fin :<input type="date" name="fecfin" required="">
+
+</h3>
+
+
+<h3>
+
+<input type="submit" name="Login" value="Inicar sesion">
+
+</h3>
+</form>
+<?php
+session_start();
+
+echo $_SESSION["activa"];
+
+if (isset($_POST["Login"])){
+   
+   if($_SESSION["activa"]=="INTERNATIONAL"){
+   
+   
+       $server = 'localhost';
+       $username = 'user_wordpress';
+       $password = 'pass_wordpress';
+       $database = 'wordpress';
+       
+       try {
+           $base = new PDO("mysql:host=$server;dbname=$database;", $username, $password);
+           $base->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+           
+           $message = '';  //El dato de message se rellena con la variable de abajo si se ha creado el Usuario o no
+           
+           $sql = "INSERT INTO gastos (intidpro,intidDep,intidempleado,dateFechainicio,dateFechafin,intdifdias,vchciudad,vchpais)
+                            VALUES (:idproyecto,:iddepartamneto,:idempleado,:fecfin,:fecini,datediff(:fecfin,:fecini),:ciudad,:pais
+               
+                               )";
+
+
+           
+           $stmt = $base->prepare($sql);
+         
+           $stmt->bindValue(':idproyecto', $_POST['idproyecto']);
+           $stmt->bindValue(':iddepartamneto', $_POST['iddepartamneto']);
+           $stmt->bindValue(':idempleado', $_POST['idempleado']);
+           $stmt->bindValue(':fecfin', $_POST['fecfin']);
+           $stmt->bindValue(':fecini', $_POST['fecini']);
+             $stmt->bindValue(':ciudad', $_POST['ciudad']);
+   $stmt->bindValue(':pais', $_POST['pais']);
+           
+     
+        if ($stmt->execute()) {
+           $message = "Factura okey";
+           
+           
+       
+       $server = 'localhost';
+       $username = 'user_wordpress';
+       $password = 'pass_wordpress';
+       $database = 'wordpress';
+       
+       try {
+           $base = new PDO("mysql:host=$server;dbname=$database;", $username, $password);
+           $base->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+   
+           $sql1 = "SELECT intidGasto, intdifdias from gastos order by intidGasto DESC limit 1";
+           $stmt1 = $base->prepare($sql1);
+
+           $stmt1->execute();
+           $filasDevuelta = $stmt1->rowCount();
+
+           foreach($stmt1 as $row1){
+               extract($row1);
+
+          $_SESSION['calcu1']=$intdifdias*100;
+
+     }  
+
+if ($stmt->execute()) {
+           $message = "Factura okey";
+         
+echo $_SESSION['calcu1'];  
+
+  $server = 'localhost';
+       $username = 'user_wordpress';
+       $password = 'pass_wordpress';
+       $database = 'wordpress';
+       
+       try {
+           $base = new PDO("mysql:host=$server;dbname=$database;", $username, $password);
+           $base->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+$sql2 = "UPDATE gastos SET totalfac= :asdf where intidGasto =  intidGasto order by intidGasto DESC limit 1";
+           $stmt2 = $base->prepare($sql2);
+
+ $stmt2->bindValue(':asdf', $_SESSION['calcu1']);
+
+if ($stmt2->execute()) {
+           $message = "Factura okey";
+              echo $message;
+} else {
+           $message = "Factura mal";
+           echo $message;
+       }
+
+
+   } catch (PDOException $e) {
+       die('Connection Failed: ' . $e->getMessage());
+   } //catch try
+
+
+
+} else {
+           $message = "Factura mal";
+           echo $message;
+       }
+
+   
+
+     
+   } catch (PDOException $e) {
+       die('Connection Failed: ' . $e->getMessage());
+   } //catch try
+
+
+       } else {
+           $message = "Factura mal";
+           echo $message;
+       }
+       
+       
+   } catch (PDOException $e) {
+       die('Connection Failed: ' . $e->getMessage());
+   } //catch try
+   
+
+//cierre if session inter
+}else {//**********    if session europe
+
+       $server = 'localhost';
+       $username = 'user_wordpress';
+       $password = 'pass_wordpress';
+       $database = 'wordpress';
+       
+       try {
+           $base = new PDO("mysql:host=$server;dbname=$database;", $username, $password);
+           $base->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+           
+           $message = '';  //El dato de message se rellena con la variable de abajo si se ha creado el Usuario o no
+           
+           $sql = "INSERT INTO gastos (intidpro,intidDep,intidempleado,dateFechainicio,dateFechafin,intdifdias,vchciudad,vchpais)
+                            VALUES (:idproyecto,:iddepartamneto,:idempleado,:fecfin,:fecini,datediff(:fecfin,:fecini),:ciudad,:pais
+               
+                               )";
+
+
+           
+           $stmt = $base->prepare($sql);
+         
+           $stmt->bindValue(':idproyecto', $_POST['idproyecto']);
+           $stmt->bindValue(':iddepartamneto', $_POST['iddepartamneto']);
+           $stmt->bindValue(':idempleado', $_POST['idempleado']);
+           $stmt->bindValue(':fecfin', $_POST['fecfin']);
+           $stmt->bindValue(':fecini', $_POST['fecini']);
+ $stmt->bindValue(':ciudad', $_POST['ciudad']);
+   $stmt->bindValue(':pais', $_POST['pais']);
+           
+
+           
+     
+        if ($stmt->execute()) {
+           $message = "Factura okey";
+           
+           
+       
+       $server = 'localhost';
+       $username = 'user_wordpress';
+       $password = 'pass_wordpress';
+       $database = 'wordpress';
+       
+       try {
+           $base = new PDO("mysql:host=$server;dbname=$database;", $username, $password);
+           $base->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+   
+           $sql1 = "SELECT intidGasto, intdifdias from gastos order by intidGasto DESC limit 1";
+           $stmt1 = $base->prepare($sql1);
+
+           $stmt1->execute();
+           $filasDevuelta = $stmt1->rowCount();
+
+           foreach($stmt1 as $row1){
+               extract($row1);
+
+          $_SESSION['calcu1']=$intdifdias*60;
+
+     }  
+
+if ($stmt->execute()) {
+           $message = "Factura okey";
+         
+echo $_SESSION['calcu1'];  
+
+  $server = 'localhost';
+       $username = 'user_wordpress';
+       $password = 'pass_wordpress';
+       $database = 'wordpress';
+       
+       try {
+           $base = new PDO("mysql:host=$server;dbname=$database;", $username, $password);
+           $base->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+$sql2 = "UPDATE gastos SET totalfac= :asdf where intidGasto =  intidGasto order by intidGasto DESC limit 1";
+           $stmt2 = $base->prepare($sql2);
+
+ $stmt2->bindValue(':asdf', $_SESSION['calcu1']);
+
+if ($stmt2->execute()) {
+           $message = "Factura okey";
+              echo $message;
+} else {
+           $message = "Factura mal";
+           echo $message;
+       }
+
+
+   } catch (PDOException $e) {
+       die('Connection Failed: ' . $e->getMessage());
+   } //catch try
+
+
+
+} else {
+           $message = "Factura mal";
+           echo $message;
+       }
+
+   
+
+     
+   } catch (PDOException $e) {
+       die('Connection Failed: ' . $e->getMessage());
+   } //catch try
+
+
+       } else {
+           $message = "Factura mal";
+           echo $message;
+       }
+       
+       
+   } catch (PDOException $e) {
+       die('Connection Failed: ' . $e->getMessage());
+   } //catch try
+
+}//**************cierre  if session europe
+
+}//***************** 1-login session
+
+
+?>
+
+

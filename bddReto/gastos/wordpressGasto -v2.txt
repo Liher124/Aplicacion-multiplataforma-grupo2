@@ -15,74 +15,83 @@
 
     <h1>Gastos</h1>
 
-<form action="" method="POST">
-    <p>ID Empleado: <input name="idEmpleado" type="number" min="0" max="99999" placeholder="Añade el id del Empleado"/><p/>
-    <p>ID Departamento: <input name="idDepartamento" type="number" min="0" max="99999" placeholder="Añade el id del Departamento"/><p/>
-    <p>ID Proyecto: <input name="idProyecto" type="number" min="0" max="99999" placeholder="Añade el id del Proyecto"/><p/>
-    <p>ID Viaje: <input name="idViaje" type="number" min="0" max="99999" placeholder="Añade el id del Viaje"/><p/>
-    <p>Dieta: <input name="diEtaF" type="text" maxlength="50" placeholder="Añadir dieta"/><p/>
-    <p>Medio Transporte: <input name="transporteF" type="text" maxlength="50" placeholder="Añadir el medio de transporte"/><p/>
-    <p>Kilometros Recorridos: <input name="kmF" type="number" min="0" max="99999" placeholder="Añadir los kilometros recorridos"/><p/>
-    <p>Peaje: <input name="peajeF" type="number" min="0" step="0.01" max="999999" placeholder="Añadir el precio del peaje"/><p/>
-    <p>Parking: <input name="parkingF" type="number" min="0" step="0.01" max="9999" placeholder="Añadir el precio del parking"/><p/>
-    <p>Combustible: <input name="combustibleF" type="number" min="0" step="0.01" max="99999" placeholder="Añadir el precio del combustible"/><p/>
-
-      <input type="submit" value="Subir datos" name="gastosBF">
+<form name="login" method="post" action="">
+<input type="hidden" name="enviado" value="1">
+	<p>Id Empleado:<input type="number" min="0" name="idempleado" placeholder="Añade el id del Empleado" required=""></p>
+	<p>Id Proyecto:<input type="number" min="0" name="idproyecto" placeholder="Añade el id del Departamento" required=""></p>
+	<p>Id Departamneto:<input type="number" min="0" name="iddepartamneto" placeholder="Añade el id del Proyecto" required=""></p>
+	<p>Peaje:<input type="number" min="0" step="0.01" name="peaje" required=""></p>
+	<p>Parking:<input type="number" min="0" step="0.01" name="parking" required=""></p>
+	<p>Medio Transporte:<input type="text" name="mediotrasporte" maxlength="50" placeholder="Añadir el medio de transporte" required=""></p>
+	<p>Distancia:<input type="number" min="0" step="0.01" name="distancia" placeholder="Añadir los kilometros recorridos" required=""></p>
+	<p>Dieta:<input type="text" min="0" name="dieta" maxlength="50" placeholder="Añadir dieta" required=""></p>
+	<p>Combustible:<input type="text" min="0" name="combustible" maxlength="50" placeholder="Añadir nombre del combustible" required=""></p>
+	<p><input type="submit" name="Insert" value="Insertar Factura"></p>
 </form>
+
+
 <!--  PHP INSERTAR GASTOS  -->
 <?php
 session_start();
 
 
-if(isset($_POST["gastosBF"])){
-
+if(isset($_POST["Insert"])){  //Nombre del boton del html
+   
     $server = 'localhost';
     $username = 'user_wordpress';
     $password = 'pass_wordpress';
     $database = 'wordpress';
 
-
     try {
-	$base = new PDO("mysql:host=$server;dbname=$database;", $username, $password);
-	$base->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        $base = new PDO("mysql:host=$server;dbname=$database;", $username, $password);
+        $base->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+        $message = '';  //El dato de message se rellena con la variable de abajo si se ha creado el Usuario o no
+       
+            $sql = "INSERT INTO gastos (intidpro,intidDep,intidempleado,dateFechaHora,inttotalKm,vchDieta,vchMedtransporte,intPeaje,intParking,vchCombustible,intdistancia,totalfac)
+                            VALUES (:idproyecto,:iddepartamneto,:idempleado,CURRENT_TIMESTAMP()
+
+,:cantidad,:dieta,:mediotrasporte,:peaje,:parking,:combustible,:distancia,:totalfac)";
+           
+            $stmt = $base->prepare($sql);
+         
+            $stmt->bindValue(':idproyecto', $_POST['idproyecto']);
+            $stmt->bindValue(':iddepartamneto', $_POST['iddepartamneto']);
+            $stmt->bindValue(':idempleado', $_POST['idempleado']);
+            $stmt->bindValue(':cantidad', $_POST['distancia']*0.3);
+            $stmt->bindValue(':dieta', $_POST['dieta']);
+            $stmt->bindValue(':mediotrasporte', $_POST['mediotrasporte']);
+            $stmt->bindValue(':peaje',$_POST['peaje']);
+            $stmt->bindValue(':parking', $_POST['parking']);
+            $stmt->bindValue(':combustible', $_POST['combustible']);
+            $stmt->bindValue(':distancia', $_POST['distancia']);
+
+  $totalfac=$_POST['peaje']+$_POST['parking']+ $_POST['distancia']*0.3;
+ $stmt->bindValue(':totalfac', $totalfac);
 
 
-$sql="INSERT INTO gastos (intIdEmpleado, intIdDepartamento, intIdProyecto, intIdViaje, dateFechaHoraGasto, vchDieta, doubleCantidadTotalGasto, vchMedioTransporte, doubleKmRecorrido, doublePeaje, doubleParking, doubleCombustible) VALUES (:idEmp, :idDept, :idProy, :idViaj, CURRENT_TIMESTAMP(), :dietV, :cantd, :transpo, :km, :peaje, :parkin, :combust)";
-
-
-            $resultado = $base->prepare($sql);
-            $resultado->bindValue(':idEmp', $_POST['idEmpleado']);
-            $resultado->bindValue(':idDept', $_POST['idDepartamento']);
-            $resultado->bindValue(':idProy', $_POST['idProyecto']);
-            $resultado->bindValue(':idViaj', $_POST['idViaje']);
-            $resultado->bindValue(':dietV', $_POST['diEtaF']);
-
-$precioKmTotal=$_POST['kmF']*0.3;
-$totalFact=$_POST['peajeF']+$_POST['parkingF']+$_POST['combustibleF']+$precioKmTotal;
-$cantidaTotal=totalFact;
-
-            $resultado->bindValue(':cantd', $_POST['cantidadF']);
-            $resultado->bindValue(':transpo', $_POST['transporteF']);
-            $resultado->bindValue(':km', $_POST['kmF']);
-            $resultado->bindValue(':peaje', $_POST['peajeF']);
-            $resultado->bindValue(':parkin', $_POST['parkingF']);
-            $resultado->bindValue(':combust', $_POST['combustibleF']);
-
-            if ($resultado->execute()) {
-                $message = "Gastos Añadidos";
+     
+               
+         
+           
+           
+           
+           
+                 
+           
+            if ($stmt->execute()) {
+                $message = 'Factura okey';
                 echo "$message";
             } else {
-                $message = "Gastos no añadidos";
+                $message = 'Factura mal';
                 echo "$message";
             }
-
-
-} catch (PDOException $e) {
+     
+       
+    } catch (PDOException $e) {
         die('Connection Failed: ' . $e->getMessage());
     } //catch
-
-}//btn gastos form
-
+} //isset
 ?>
 
 <!-- HTML CIERRE DEL BODY Y HTML   -->

@@ -13,15 +13,11 @@ SET SQL_SAFE_UPDATES=0;
 /*		Borrado de tablas 	*/
 drop table if exists empleados;
 drop table if exists usuarios;
-/*drop table if exists tarjeta;*/
 drop table if exists departamento;
 drop table if exists proyecto;
 drop table if exists gastos;
-drop table if exists viajes;
-
 
 /****		TABLAS		****/
-
 create table empleados (
     intIdEmpleado int(10) not null auto_increment,
     intIdUser int(10) not null,
@@ -31,6 +27,8 @@ create table empleados (
     vchCorreo varchar(50) not null,
     vchDni varchar(9) not null unique,
     vchEspecialidad varchar(20)not null,
+	intidDep int,
+	intidGasto int,
     primary key (intIdEmpleado)
 );
 
@@ -46,54 +44,44 @@ create table usuarios (
     primary key (intIdUser)
 );
 
-/*
-create table tarjeta (
-	intIdNumeroTarjeta int(10) not null auto_increment,
-	intIdEmpleado int(10) not null,
-    vchTipo varchar(20) not null,
-    primary key (intIdNumeroTarjeta)
-);
-*/
-create table departamento (
-	intIdDepartamento int(10) not null auto_increment,
-	vchNombre varchar(20) not null,
-    primary key (intIdDepartamento)
-);
 
 create table proyecto (
-	intIdProyecto int(10) not null auto_increment,
-	vchNombre varchar(20) not null,
-    dateFechaInicio date not null,
-    dateFechaFin date not null,
-    doublePresupuesto double(10,3) not null,
-    primary key (intIdProyecto)
+intidpro int,
+vchNom varchar(30),
+dateFechaInicio date,
+dateFechafin date,
+doublePresupuesto double(10,2),
+PRIMARY KEY(intidpro)
 );
+
+create table departamento(
+intidDep int,
+vchNom varchar(30),
+PRIMARY KEY(intidDep)
+);
+
 
 create table gastos (
-	intIdGasto int(5) not null auto_increment,
-    intIdEmpleado int(5),
-    intIdDepartamento int(5),
-    intIdProyecto int(5),
-    intIdViaje int(5),
-    dateFechaHoraGasto datetime,
-	vchDieta varchar(50),
-	doubleCantidadTotalGasto double(10,2),
-    vchMedioTransporte varchar(50),
-    doubleKmRecorrido double(10,2),
-    doublePeaje double(6,2),
-    doubleParking double(6,2),
-    doubleCombustible double(6,2),
-    primary key (intIdGasto)
+intidGasto int auto_increment PRIMARY KEY,
+intidpro int,
+intidDep int,
+dateFechaHora datetime,
+inttotalKm double ,
+vchDieta varchar(15),
+vchMedtransporte varchar(15),
+intPeaje int,
+intParking int,
+vchCombustible varchar(15),
+intdistancia int,
+totalfac double,
+intidempleado int,
+vchpais varchar(30),
+vchciudad varchar(30),
+dateFechainicio date,
+dateFechafin date,
+intdifdias int
 );
 
-create table viajes (
-    intIdViaje int(10) not null auto_increment,
-	vchPais varchar(20),
-    vchCiudad varchar(20),
-	dateFechaInicio date not null,
-    dateFechaFin date not null,
-    primary key (intIdViaje)
-);
 
 /*****************************
 CREACION DE FK
@@ -105,26 +93,14 @@ add constraint fk_intIdUser foreign key(intIdUser)
 references usuarios (intIdUser);
 
 /*	FK 	TABLA gastos*/ 
-alter table gastos
-add constraint fk_intIdEmpleado foreign key(intIdEmpleado)
-references empleados (intIdEmpleado);
+Alter table gastos
+Add constraint fk_gastos FOREIGN KEY (intidempleado) references empleados(intIdEmpleado);
 
-alter table gastos
-add constraint fk_intIdProyecto foreign key(intIdProyecto)
-references proyecto (intIdProyecto);
+Alter table gastos
+Add constraint fk2_gastos FOREIGN KEY (intidpro) references proyecto(intidpro);
 
-alter table gastos
-add constraint fk_intIdDepartamento foreign key(intIdDepartamento)
-references departamento (intIdDepartamento);
-
-alter table gastos
-add constraint fk_intIdViaje foreign key(intIdViaje)
-references viajes (intIdViaje);
-
-/*	FK 	TABLA tarjeta
-alter table tarjeta
-add constraint fk_intIdEmpleado foreign key(intIdEmpleado)
-references empleados (intIdEmpleado);*/
+Alter table gastos
+Add constraint fk3_gastos FOREIGN KEY (intidDep) references departamento(intidDep);
 
 
 /*****************************
@@ -138,44 +114,25 @@ delete from usuarios;
 delete from departamento;
 delete from gastos;
 delete from proyecto;
-delete from viajes;
+
 
 /*	Insertar datos tabla empleados */ 
 ALTER TABLE empleados AUTO_INCREMENT=1;
-insert into empleados (intIdUser,vchNombre,vchApellido1,vchApellido2,vchCorreo,vchEspecialidad,vchDni) values 
-(1,"Liher","Ramoneda","Vicente","liher.ramoneda@maristak.net","Desarrollador","7892667B"),
-(2,"Liher","Ramoneda","Vicente","liher.ramoneda@gmail.com","Informatico","9138384X"),
-(3,"Jon","Herrero","Nevada","jon.herrero@maristak.net","Abogado","7634684F"),
-(4,"Aitor","Manuel","","aitor.manuel@gmail.com","Desarrollador","3464684A"),
-(5,"Xabi","Parra","Navarro","xabi.parra@gmail.com","Abogado","7134684J"),
-(6,"Jose","Manuel","Nevada","joseMan@gmail.com","Informatico","7134684V");
+insert into empleados (intIdUser,vchNombre,vchApellido1,vchApellido2,vchCorreo,vchDni,vchEspecialidad,intidDep,intidGasto) values 
+(1,"Liher","Ramoneda","Vicente","liher.ramoneda@maristak.net","7892667B","Desarrollador",1,1),
+(2,"Liher","Ramoneda","Vicente","liher.ramoneda@gmail.com","9138384X","Informatico",1,1);
 select * from empleados;
 
-/*	Insertar datos tabla departamento */ 
-ALTER TABLE departamento AUTO_INCREMENT=1;
-insert into departamento (vchNombre) values 
-("Desarrollo"),("Abogados"),("Mantenimiento"),("Transporte"),("Programacion");
-select * from departamento;
 
-/*	Insertar datos tabla gastos */ 
-/*ALTER TABLE gastos AUTO_INCREMENT=1;
-insert into gastos (intIdEmpleado,intIdProyecto,intIdDepartamento,intIdViaje,dateFechaHoraGasto,vchDieta,intCantidad,vchMedioTranporte,doubleKmRecorrido,
-doublePeaje,doubleParking,doubleCombustible) values 
-();
-/*
-
-/*	Insertar datos tabla viaje */ 
-ALTER TABLE viajes AUTO_INCREMENT=1;
-insert into viajes (vchPais,vchCiudad,dateFechaInicio,dateFechaFin) values 
-("España","Bilbao",'2021-08-30','2021-12-30'),
-("España","Valencia",'2021-03-30','2021-11-30');
-
-
-/*	Insertar datos tabla proyecto */ 
-ALTER TABLE proyecto AUTO_INCREMENT=1;
-insert into proyecto (vchNombre,dateFechaInicio,dateFechaFin,doublePresupuesto) values 
-("Ala",'2021-07-30','2021-11-30',19040.20),
-("Beta",'2021-01-01','2021-11-30',59010.30),
-("Delta",'2021-01-01','2021-11-30',59010.30),
-("Gamma",'2021-01-01','2021-11-30',59010.30);
+-- TABLA PROYECTO
+insert into proyecto (intidpro,vchNom,dateFechaInicio,dateFechafin,doublePresupuesto) VALUES (1,"Aplicacion Android",'2021/10/15','2021/12/20',30000.20);
+insert into proyecto (intidpro,vchNom,dateFechaInicio,dateFechafin,doublePresupuesto) VALUES (2,"Aplicacion Web",'2021/10/15','2021/12/20',30000.30);
 select * from proyecto;
+
+-- TABLA DEPARTAMENTO
+insert into departamento (intidDep,vchNom) VALUES (1,"Desarrollo");
+insert into departamento (intidDep,vchNom) VALUES (2,"Abogados");
+insert into departamento (intidDep,vchNom) VALUES (3,"Transporte");
+insert into departamento (intidDep,vchNom) VALUES (4,"Mantenimiento");
+insert into departamento (intidDep,vchNom) VALUES (5,"Programacion");
+select * from departamento;
