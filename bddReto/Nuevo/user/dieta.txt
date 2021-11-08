@@ -1,0 +1,162 @@
+<!-- HTML *************   -->
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Dieta</title>
+  <style>
+        input { 
+	     width: 50%; 
+	     margin-bottom: 5px; 
+        }
+  </style>
+  </head>
+  <body>
+
+<form name="login" method="post" action="">
+
+<input type="hidden" name="enviado" value="1">
+
+<h3>
+Id Empleado:<br><input type="number" min="0" name="idempleado" required="">
+</h3>
+
+<h3>
+Id Proyecto:<br><input type="number" min="0" name="idproyecto" required="">
+</h3>
+
+<h3>
+Id Departamneto:<br><input type="number" min="0" name="iddepartamneto" required="">
+</h3>
+
+<h3>
+Ciudad:<br><input type="text" min="0" name="ciudad" required="">
+</h3>
+
+<h3>
+Pais:<br><input type="text" min="0" name="pais" required="">
+</h3>
+
+<h3>
+Fecha Inicio :<input type="date" name="fecini" required="">
+</h3>
+
+<h3>
+Fecha Fecha Fin :<input type="date" name="fecfin" required="">
+</h3>
+
+<h3>
+<input type="submit" name="Login" value="Inicar sesion">
+</h3>
+</form>
+
+
+<?php
+session_start();
+
+echo $_SESSION["activa"];
+
+if (isset($_POST["Login"])){
+   
+   if($_SESSION["activa"]=="INTERNATIONAL"){
+   
+       $server = 'localhost';
+       $username = 'user_wordpress';
+       $password = 'pass_wordpress';
+       $database = 'wordpress';
+       
+       try {
+           $base = new PDO("mysql:host=$server;dbname=$database;", $username, $password);
+           $base->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+           
+           $message = '';  //El dato de message se rellena con la variable de abajo si se ha creado el Usuario o no
+           
+           $sql = "INSERT INTO gastos (intidpro,intidDep,totalfac,intidempleado,intdifdias,vchciudad,vchpais)
+                            VALUES (:idproyecto,:iddepartamneto,datediff(:fecfin,:fecini)*100,:idempleado,datediff(:fecfin,:fecini),:ciudad,:pais
+          
+                               )";
+
+
+
+           $stmt = $base->prepare($sql);
+         
+           $stmt->bindValue(':idproyecto', $_POST['idproyecto']);
+           $stmt->bindValue(':iddepartamneto', $_POST['iddepartamneto']);
+           $stmt->bindValue(':idempleado', $_POST['idempleado']);
+           $stmt->bindValue(':fecfin', $_POST['fecfin']);
+           $stmt->bindValue(':fecini', $_POST['fecini']);
+           $stmt->bindValue(':diasCont', $diff1);
+           $stmt->bindValue(':ciudad', $_POST['ciudad']);
+           $stmt->bindValue(':pais', $_POST['pais']);
+           
+
+           
+     
+        if ($stmt->execute()) {
+           $message = "Factura okey";
+
+       } else {
+           $message = "Factura mal";
+           echo $message;
+
+       }
+       
+       
+   } catch (PDOException $e) {
+       die('Connection Failed: ' . $e->getMessage());
+   } //catch try
+
+} else {  //**************cierre  if session europe
+
+       $server = 'localhost';
+       $username = 'user_wordpress';
+       $password = 'pass_wordpress';
+       $database = 'wordpress';
+       
+       try {
+           $base = new PDO("mysql:host=$server;dbname=$database;", $username, $password);
+           $base->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+           
+           $message = '';  //El dato de message se rellena con la variable de abajo si se ha creado el Usuario o no
+           
+           $sql = "INSERT INTO gastos (intidpro,intidDep,totalfac,intidempleado,intdifdias,vchciudad,vchpais)
+                            VALUES (:idproyecto,:iddepartamneto,datediff(:fecfin,:fecini)*60,:idempleado,datediff(:fecfin,:fecini),:ciudad,:pais
+          
+                               )";
+
+
+
+           $stmt = $base->prepare($sql);
+         
+           $stmt->bindValue(':idproyecto', $_POST['idproyecto']);
+           $stmt->bindValue(':iddepartamneto', $_POST['iddepartamneto']);
+           $stmt->bindValue(':idempleado', $_POST['idempleado']);
+           $stmt->bindValue(':fecfin', $_POST['fecfin']);
+           $stmt->bindValue(':fecini', $_POST['fecini']);
+           $stmt->bindValue(':diasCont', $diff1);
+           $stmt->bindValue(':ciudad', $_POST['ciudad']);
+           $stmt->bindValue(':pais', $_POST['pais']);
+           
+
+           
+     
+        if ($stmt->execute()) {
+           $message = "Factura okey";
+
+       } else {
+           $message = "Factura mal";
+           echo $message;
+
+       }
+       
+       
+   } catch (PDOException $e) {
+       die('Connection Failed: ' . $e->getMessage());
+   } //catch try
+
+}
+
+}//***************** 1-login session
+
+
+?>

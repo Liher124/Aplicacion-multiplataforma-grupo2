@@ -1,0 +1,86 @@
+<?php
+session_start();
+
+?>
+<html>
+<head>
+<title>Busqueda</title>
+</head>
+<body>
+<form name="login" method="post" action="">
+
+<h3>
+Fecha Inicio :<input type="text" name="fecini" placeholder="aaaa-mm-dd  --:--:--">
+</h3>
+
+<h3>
+Fecha Fin :<input type="text" name="fecfin" placeholder="aaaa-mm-dd  --:--:--">
+</h3>
+
+
+<input type="submit" name="buscar" >
+
+</form>
+
+<?php
+if(isset($_POST["buscar"])){  //Nombre del boton del html
+   
+    $server = 'localhost';
+    $username = 'user_wordpress';
+    $password = 'pass_wordpress';
+    $database = 'wordpress';
+?>
+    		<table class="default">
+ 		<tr>
+    			<th>Id</th>
+    			<th>Email</th>
+    			<th>Nombre Usuario</th>
+    			<th>Rol</th>
+                	<th>Ultima Sesión</th>
+                        <th>Estado</th>
+                 </tr>
+</table>
+</body>
+</html>
+
+<?php
+    try {
+        $base = new PDO("mysql:host=$server;dbname=$database;", $username, $password);
+        $base->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+
+        $sql = "SELECT * FROM gastos WHERE dateFechaHora between :fecinisql and :fecfinsql ";
+        $stmt=$base->prepare($sql);
+        $stmt->bindValue(":fecinisql", $_POST["fecini"]);
+        $stmt->bindValue(":fecfinsql", $_POST["fecfin"]);
+        $fec=$_POST["fecfin"];
+            
+
+
+            $stmt->execute();
+            
+            $numero_registro=$stmt->rowCount(); 
+        
+            foreach ($stmt as $row) {	//extrae los datos de la sql "El select" para crear la sesion abajo
+		extract($row);
+
+
+?>
+		 <tr>
+			<td><?php echo "hola"; ?></td>
+
+                 <tr>
+<?php
+
+}//foreach
+
+    } catch (PDOException $e) {
+        die('Connection Failed: ' . $e->getMessage());
+    } 
+
+ 
+} //isset
+
+
+
+?>
