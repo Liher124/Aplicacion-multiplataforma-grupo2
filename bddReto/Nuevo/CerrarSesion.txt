@@ -1,0 +1,9 @@
+<?php
+// Inicializar la sesión.
+// Si está usando session_name("algo"), ¡no lo olvide ahora!
+session_start();
+unset($_SESSION);
+// Finalmente, destruir la sesión.
+session_destroy();
+header('Location: '. "http://www.grupo2ciber.com");  //Que valla al Login
+?>
