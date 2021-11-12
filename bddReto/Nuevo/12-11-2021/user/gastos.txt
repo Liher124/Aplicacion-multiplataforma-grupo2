@@ -1,0 +1,145 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Gastos</title>
+  <style>
+        input { 
+	     width: 50%; 
+	     margin-bottom: 5px; 
+        }
+  </style>
+  </head>
+  <body>
+
+    <h1>Gastos</h1>
+        <form method="post" action="">
+
+
+<?php
+session_start();
+
+    $server = 'localhost';
+    $username = 'user_wordpress';
+    $password = 'pass_wordpress';
+    $database = 'wordpress';
+
+    try {
+        $base = new PDO("mysql:host=$server;dbname=$database;", $username, $password);
+        $base->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        
+        $sql1="SELECT * FROM proyecto";
+        $sql2="SELECT * FROM departamento";
+        $resultadoP=$base->prepare($sql1);
+        $resultadoD=$base->prepare($sql2);
+        $resultadoP->execute();
+        $resultadoD->execute();
+
+        } catch (PDOException $e) {
+                 die('Connection Failed: ' . $e->getMessage());
+        } //catch
+
+?>
+
+      <select id="departamentoId" name="IdDepartamento" >
+              <option selected="true" disabled="disabled">Eleccion de departamentos</option>
+              <option value="null"><?php echo "Sin valor" ;?></option>
+<?php
+               foreach ($resultadoD as $row1) {	//extrae los datos de la sql "El select" para crear la sesion abajo
+		     extract($row1);
+
+?>
+        <option value="<?php echo $intIdDepartamento; ?>"><?php echo $vchNombre;?></option>
+
+<?php
+} //cierre foreach
+
+?>
+</select>
+<p>
+<p>
+      <select id="proyectoId" name="IdProyecto" >
+              <option selected="true" disabled="disabled">Eleccion de proyecto</option>
+              <option value="null"><?php echo "Sin valor" ;?></option>
+
+<?php
+               foreach ($resultadoP as $row2) {	//extrae los datos de la sql "El select" para crear la sesion abajo
+		     extract($row2);
+?>
+        <option value="<?php echo $intIdProyecto; ?>"><?php echo $vchNombre;?></option>
+
+<?php
+} //cierre foreach
+?>
+</select>
+<p>
+
+	<p>Distancia:<input type="number" min="0" step="0.01" name="distancia" placeholder="Añadir los kilometros recorridos" required=""></p>
+
+
+      <select id="transporteId" name="transporteS" >
+              <option selected="true" disabled="disabled">Eleccion de Transporte</option>
+              <option value="coche">Coche</option>
+              <option value="autobus">Autobus</option>
+              <option value="taxi">Taxi</option>
+              <option value="tren">Tren</option>
+              <option value="metro">Metro</option>
+      </select>
+      </p>
+
+	<p>Peaje:<input type="number" min="0" step="0.01" name="peaje" required=""></p>
+        <p>Parking:<input type="number" min="0" step="0.01" name="parking" required=""></p>
+
+	<p><input type="submit" name="insertar" value="Insertar Factura"></p>
+</form>
+
+
+<?php
+if(isset($_POST["insertar"])){ 
+    $server = 'localhost';
+    $username = 'user_wordpress';
+    $password = 'pass_wordpress';
+    $database = 'wordpress';
+
+    try {
+	$base = new PDO("mysql:host=$server;dbname=$database;", $username, $password);
+	$base->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        $iddep=$_POST['IdDepartamento'];
+        $Idpro=$_POST['IdProyecto'];
+        
+$sql="insert into gastos (intIdProyecto, intIdDepartamento, intIdUser, dateFechaHora, doubleDistanciaTotalKm, vchMediotransporte, doublePeaje, doubleParking, doubleTotalFactura) values ($Idpro, $iddep, :id, CURRENT_TIMESTAMP(), :distancia, :mediotrasporte, :peaje, :parking, :totalfac)";
+
+
+           
+            $stmt = $base->prepare($sql);
+         
+            $stmt->bindValue(':id', $_SESSION["id"]);  //id user
+            $stmt->bindValue(':distancia', $_POST['distancia']);
+            $stmt->bindValue(':mediotrasporte', $_POST['transporteS']);
+            $stmt->bindValue(':peaje', $_POST['peaje']);
+            $stmt->bindValue(':parking', $_POST['parking']);
+
+            $totalfac=$_POST['peaje']+$_POST['parking']+ $_POST['distancia']*0.3;
+            $stmt->bindValue(':totalfac', $totalfac);
+
+            
+            //Falta el calculo de Dieta, fichaje
+
+            if ($stmt->execute()) {
+                $message = 'Factura realizada correctamente';
+                echo "$message";
+            } else {
+                $message = 'Factura incorrecta error en los datos';
+                echo "$message";
+            }
+     
+       
+    } catch (PDOException $e) {
+        die('Connection Failed: ' . $e->getMessage());
+    } //catch
+} //isset
+?>
+
+<!-- HTML *************   -->
+</body>
+</html>
+

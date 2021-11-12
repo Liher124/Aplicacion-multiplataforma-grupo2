@@ -12,5 +12,4 @@ delete from usuarios;
 delete from departamento;
 delete from gastos;
 delete from proyecto;
-
-
+delete from fichar;

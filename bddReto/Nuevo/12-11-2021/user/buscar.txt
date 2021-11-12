@@ -1,0 +1,193 @@
+<?php
+session_start();
+?>
+
+<html>
+<head>
+<title>Busqueda</title>
+</head>
+<body>
+<form name="login" method="post" action="">
+
+<h3>
+Fecha Inicio :<input type="datetime-local" name="fecini" placeholder="aaaa-mm-dd  --:--:--">
+</h3>
+
+<h3>
+Fecha Fin :<input type="datetime-local" name="fecfin" placeholder="aaaa-mm-dd  --:--:--">
+</h3>
+
+<h3>
+Importe Inicial :<input type="number" name="numero1" min="0" placeholder="10$">
+</h3>
+
+<h3>
+Importe Final :<input type="number" min="0" name="numero2" placeholder="100$">
+</h3>
+
+
+<input type="submit" name="buscar" value="Buscar por Fecha">
+<input type="submit" name="buscarImporte" value="Buscar por Importe">
+
+</form>
+
+<?php
+if(isset($_POST["buscar"])){  //Nombre del boton del html
+   
+    $server = 'localhost';
+    $username = 'user_wordpress';
+    $password = 'pass_wordpress';
+    $database = 'wordpress';
+?>
+    		<table class="default">
+ 		<tr>
+    			<th>Fecha del gasto</th>
+    			<th>Proyecto</th>
+                        <th>Departamento</th>
+    			<th>Días de Viaje</th>
+    			<th>Distancia recorrida</th>
+    			<th>Medio de Transporte</th>
+    			<th>Precio Peaje</th>
+    			<th>Precio Parking</th>
+                        <th>Factura total</th>
+                 </tr>
+
+</body>
+</html>
+
+<?php
+$idd=$_SESSION["id"];
+$fech_in=explode("T",$_POST['fecini']);
+$fech_fin=explode("T",$_POST['fecfin']);
+
+$fech_inE= $fech_in[0]." ".$fech_in[1].".00</br>";
+$fech_inS= $fech_fin[0]." ".$fech_fin[1].".00</br>";
+
+
+    try {
+        $base = new PDO("mysql:host=$server;dbname=$database;", $username, $password);
+        $base->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+
+        //$sql = "SELECT * FROM gastos WHERE intIdUser = $idd and dateFechaHora between :fecinisql and :fecfinsql ";
+
+$sql="SELECT proyecto.vchNombre as NombreProyecto, departamento.vchNombre as NombreDepartamento, dateDiasTotales, dateFechaHora, doubleTotalFactura, doubleDistanciaTotalKm, vchMediotransporte, doublePeaje, doubleParking from gastos left join departamento on departamento.intIdDepartamento = gastos.intIdDepartamento left join proyecto on proyecto.intIdProyecto = gastos.intIdProyecto where intIdUser = $idd and dateFechaHora between :fecinisql and :fecfinsql";
+
+
+
+        $stmt=$base->prepare($sql);
+        $stmt->bindValue(":fecinisql", $fech_inE);
+        $stmt->bindValue(":fecfinsql", $fech_inS);
+        //$stmt->bindValue(":id", $idd);
+            
+        $stmt->execute();
+        $numero_registro=$stmt->rowCount(); 
+        
+            foreach ($stmt as $row) {	//extrae los datos de la sql "El select" para crear la sesion abajo
+		extract($row);
+
+
+?>
+		 <tr>
+                        <td><?php echo $dateFechaHora?></td>
+			<td><?php echo $NombreProyecto?></td>
+			<td><?php echo $NombreDepartamento?></td>
+                        <td><?php echo $dateDiasTotales?></td>
+                        <td><?php echo $doubleDistanciaTotalKm?></td>
+                        <td><?php echo $vchMediotransporte?></td>
+                        <td><?php echo $doublePeaje?></td>
+                        <td><?php echo $doubleParking?></td>
+                        <td><?php echo $doubleTotalFactura?></td>
+
+                 <tr>
+<?php
+}//foreach
+
+?>
+</table>
+
+<?php
+    } catch (PDOException $e) {
+        die('Connection Failed: ' . $e->getMessage());
+    } 
+
+ 
+} //isset
+
+
+// *************************************  BOTON IMPORTE  ******************************
+
+if(isset($_POST["buscarImporte"])){  //Nombre del boton del html
+   
+    $server = 'localhost';
+    $username = 'user_wordpress';
+    $password = 'pass_wordpress';
+    $database = 'wordpress';
+?>
+    		<table class="default">
+ 		<tr>
+    			<th>Fecha del gasto</th>
+    			<th>Proyecto</th>
+                        <th>Departamento</th>
+    			<th>Días de Viaje</th>
+    			<th>Distancia recorrida</th>
+    			<th>Medio de Transporte</th>
+    			<th>Precio Peaje</th>
+    			<th>Precio Parking</th>
+                        <th>Factura total</th>
+                 </tr>
+
+</body>
+</html>
+
+<?php
+
+$idd=$_SESSION["id"];
+$numeroI=$_POST["numero1"];
+$numeroF=$_POST["numero2"];
+
+    try {
+        $base = new PDO("mysql:host=$server;dbname=$database;", $username, $password);
+        $base->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+
+        //$sql = "SELECT * FROM gastos WHERE intIdUser = $idd and doubleTotalFactura BETWEEN $numeroI AND $numeroF ";
+
+$sql="SELECT proyecto.vchNombre as NombreProyecto, departamento.vchNombre as NombreDepartamento, dateDiasTotales, dateFechaHora, doubleTotalFactura, doubleDistanciaTotalKm, vchMediotransporte, doublePeaje, doubleParking from gastos left join departamento on departamento.intIdDepartamento = gastos.intIdDepartamento left join proyecto on proyecto.intIdProyecto = gastos.intIdProyecto where intIdUser = $idd and doubleTotalFactura BETWEEN $numeroI AND $numeroF";
+
+        $stmt=$base->prepare($sql);
+        $stmt->execute();
+        $numero_registro=$stmt->rowCount(); 
+        
+            foreach ($stmt as $row) {	//extrae los datos de la sql "El select" para crear la sesion abajo
+		extract($row);
+
+
+?>
+		 <tr>
+                        <td><?php echo $dateFechaHora?></td>
+			<td><?php echo $NombreProyecto?></td>
+			<td><?php echo $NombreDepartamento?></td>
+                        <td><?php echo $dateDiasTotales?></td>
+                        <td><?php echo $doubleDistanciaTotalKm?></td>
+                        <td><?php echo $vchMediotransporte?></td>
+                        <td><?php echo $doublePeaje?></td>
+                        <td><?php echo $doubleParking?></td>
+                        <td><?php echo $doubleTotalFactura?></td>
+                 <tr>
+<?php
+}//foreach
+?>
+</table>
+
+<?php
+    } catch (PDOException $e) {
+        die('Connection Failed: ' . $e->getMessage());
+    } 
+
+ 
+} //isset
+
+
+
+?>
