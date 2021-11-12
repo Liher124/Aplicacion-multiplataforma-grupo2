@@ -1,0 +1,17 @@
+IP MAQUINA 10.122.27.103
+
+
+PASSWORDS
+
+usuario debian root → Maristak2122
+
+
+bdd mysql root → %%my$$%ql
+bdd mysql usuario2 (administrador3) → myAd1sql200_
+
+bdd mysql usuario wordpress (user_wordpress) → %myU_w3sql
+
+Usuario FTP (uwordpress) → %Wordpr3ss
+
+
+Usuario login wp-admin (grupo2Admin) → 5KjF1N2Qqk#v*WF3iC

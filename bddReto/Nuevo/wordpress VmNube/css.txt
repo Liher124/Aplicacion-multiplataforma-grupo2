@@ -1,0 +1,67 @@
+body { 
+	width: 100%;
+	height:100%;
+  margin: 0;
+  padding: 0;
+	font-family: 'Open Sans', sans-serif;
+	background: linear-gradient(45deg, greenyellow, dodgerblue);
+	background-repeat: repeat;
+}
+
+/* Editar Contendor del header del body*/
+header.entry-header.ast-header-without-markup{
+		width:0px;
+		height:0px;
+}
+
+.entry-title {
+    font-size: 30px;
+    font-size: 1.7647058823529rem;
+		color:transparent;
+}
+
+/* Editar Contendor del body*/ 
+div#primary.ast-container{
+		background: #092756;
+}
+
+#primary{
+		width:100%;
+		height:auto;
+    background: #ffff;
+}
+
+div#primary.content-area primary{
+		margin-top:0px;
+}
+
+.site-main{
+		padding:50px;
+}
+
+div#secondary.widget-area.secondary{
+	width:0;
+	height:0;
+	padding-left:0;
+}
+
+/* EDITAR PAGINAS GLOBALES PARA TODAS */
+div.contit {
+		width:100%;
+		height:auto;
+}
+div.conttabl{
+		width:100%;
+		height:auto;
+}
+
+
+/* Editar css de paginas especificas*/
+
+
+/* Editar footer*/
+footer#colophon.site-footer{
+		position:fixed;
+		top:90%; left: 0; right: 0;
+		width:100%;
+}
