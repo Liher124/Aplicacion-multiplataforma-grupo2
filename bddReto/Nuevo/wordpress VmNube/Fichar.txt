@@ -1,0 +1,81 @@
+<?php
+session_start();
+if(isset($_SESSION["id"])){    //Cuando este la session iniciada te muestra la pagina
+
+    $server = 'localhost';
+    $username = 'user_wordpress';
+    $password = '%myU_w3sql';
+    $database = 'wordpress';
+
+        try {
+            $base = new PDO("mysql:host=$server;dbname=$database;", $username, $password);
+            $base->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+           
+            $sql="select * from proyecto";
+            $resultado=$base->prepare($sql);
+       
+            $resultado->execute();
+           
+            $numero_registro=$resultado->rowCount();
+
+?>
+<h3>FICHAR</h3>
+<form action="" method="post">
+<p>Departamento:   <select name="proyecto">
+<?php
+foreach ($resultado as $row) {
+extract($row);
+ ?>            
+   
+  <option value="<?php echo $intIdProyecto;?>"><?php echo $vchNombre; ?></option>
+<?php
+}
+?>
+</select></p>
+<p>Hora de entrada:  <input type="time" name="horaEntrada"/></p>
+<p>Hora de salida:  <input type="time" name="horaSalida"/></p>
+<input type="submit" name="envio"/>
+</form>
+
+<?php
+ } catch (PDOException $e) {
+        die('Connection Failed: ' . $e->getMessage());
+    } //catch
+?>
+
+
+<?php
+if(isset($_POST["envio"])){ 
+
+$idp=$_POST["proyecto"];
+$idu=$_SESSION["id"];
+$he=$_POST["horaEntrada"];
+$hs=$_POST["horaSalida"];
+
+    $server = 'localhost';
+    $username = 'user_wordpress';
+    $password = '%myU_w3sql';
+    $database = 'wordpress';
+
+        try {
+            $base= new PDO("mysql:host=$server;dbname=$database;", $username, $password);
+            $base->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+           
+            $sql="insert into fichar (intIdUser,intIdProyecto,datetimeHoraEntrada,datetimeHoraSalida,datefecha,horasDia) values ($idu,$idp,'$he','$hs',CURRENT_TIMESTAMP(),TIMEDIFF('$hs','$he'))";
+            $resultado=$base->prepare($sql);
+            //$resultado->bindValue(':idp', $idp);
+           //$resultado->bindValue(':isu', $idu);
+            $resultado->execute();
+
+            echo "Fichaje registrado correctamente";
+
+ } catch (PDOException $e) {
+        die('Connection Failed: ' . $e->getMessage());
+    } //catch
+
+} //isset
+
+} else {
+      header('Location: https://www.grupo2ciber.com');     //Te redirige a la pagina de "LOGIN"
+}
+?>

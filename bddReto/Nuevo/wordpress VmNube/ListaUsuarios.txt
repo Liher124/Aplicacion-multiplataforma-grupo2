@@ -1,14 +1,68 @@
+<?php
+session_start();
+if(isset($_SESSION["id"])){    //Cuando este la session iniciada te muestra la pagina
+
+if($_SESSION["rol"]=="administrador"){
+?>
+
 <!DOCTYPE html>
 <html>
   	<head>
     		<meta charset="utf-8">
     		<title>Lista Usuarios</title>
+        <style>
+@import url("https://fonts.googleapis.com/css2?family=Sansita+Swashed:wght@600&display=swap");
+
+
+@media screen and (max-width: 900px) {
+       table {
+           width:100%;
+           background: #fff;
+           border-collapse: collapse;
+       }
+       thead {
+           display: none;
+       }
+
+       tr:nth-of-type(2n) {
+           background-color: inherit;
+       }
+
+       tr td:first-child {
+           background: #f0f0f0;
+           font-weight:bold;
+           font-size:1.3em;
+
+       }
+       tbody td {
+           display: block;
+           text-align:center;
+       }
+       tbody td:before {
+           content: attr(data-th);
+           display: block;
+           text-align:center;
+       }
+}
+
+       th {
+            background-color:#16B4DB;
+            color: #ffffff;
+       }
+
+       td {
+            background-color: #f3f3f3;
+            font-weight: bold;
+            color: #40403f;
+       }
+
+        </style>
   	</head>
 
   	<body>
-             <div class="contit"><h5>LISTA DE USUARIOS</h5></div>
-                <div class="conttabl">
-    		<table class="default">
+             <div class="contit"><h3>LISTA DE USUARIOS</h3></div>
+    		<table class="styled-table">
+                <thead>
  		<tr>
     			<th>Id</th>
     			<th>Email</th>
@@ -16,15 +70,17 @@
     			<th>Rol</th>
                 	<th>Ultima Sesión</th>
                         <th>Estado</th>
+                        <th>Activacion</th>
   		</tr>
+                <thead>
 <!-- cerrar tabla despues del php -->
 
-<?php
-session_start();
 
-echo "Usuario".$_SESSION["usuario"]; //ver perfil de usuario echo
-echo "Id".$_SESSION["id"]; //ver perfil de usuario echo
-echo "Rol".$_SESSION["rol"]; //ver perfil de usuario echo
+
+<?php
+//echo "Usuario".$_SESSION["usuario"]; //ver perfil de usuario echo
+//echo "Id".$_SESSION["id"]; //ver perfil de usuario echo
+//echo "Rol".$_SESSION["rol"]; //ver perfil de usuario echo
 
 
   
@@ -48,7 +104,8 @@ echo "Rol".$_SESSION["rol"]; //ver perfil de usuario echo
             foreach ($resultado as $row) {	//extrae los datos de la sql "El select" para crear la sesion abajo
 		extract($row);
 
-?>   
+?>  
+                 <tbody> 
 		 <tr>
 			<td><?php echo "$intIdUser"; ?></td>
 			<td><?php echo "$vchEmail"; ?></td>
@@ -81,6 +138,7 @@ if($_SESSION["estado"] === $activado) {
                             </form>
                         </td>
 		 </tr>
+                 <tbody>
 <?php
 } //cierre else de estado
 
@@ -114,9 +172,30 @@ echo "";
 	      die('Connection Failed: ' . $e->getMessage());
 	} //cierre try y catch
 
+$use=$_SESSION["usuario"];
+$ro=$_SESSION["rol"];
 ?>
 
+</table>
 
-             </table>
+<h5 class="textoMess"><?php echo "Usuario conectado --> ".$use . "</br> Rol --> ".$ro; ?></h5>
+
 	</body>
+
 </html>
+
+<?php
+} else {
+     header('Location: https://www.grupo2ciber.com/?page_id=37');
+}
+?>
+
+</body>
+</html>
+
+
+<?php
+} else {
+      header('Location: https://www.grupo2ciber.com');     //Te redirige a la pagina de "LOGIN"
+}
+?>

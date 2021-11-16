@@ -3,6 +3,7 @@ IP MAQUINA 10.122.27.103
 
 PASSWORDS
 
+ciber2/KWjgOW4T
 usuario debian root → Maristak2122
 
 
@@ -15,3 +16,7 @@ Usuario FTP (uwordpress) → %Wordpr3ss
 
 
 Usuario login wp-admin (grupo2Admin) → 5KjF1N2Qqk#v*WF3iC
+
+
+Usuario Pagina web bdd (liher124) --> %L_%i_%h3RR1000
+Usuario Pagina web bdd (jon1) --> %J_%0_%n1000.

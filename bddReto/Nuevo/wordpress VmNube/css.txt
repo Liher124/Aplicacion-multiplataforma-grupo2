@@ -49,19 +49,52 @@ div#secondary.widget-area.secondary{
 div.contit {
 		width:100%;
 		height:auto;
+		margin-bottom:40px;
 }
 div.conttabl{
 		width:100%;
 		height:auto;
 }
 
+h3 {
+  font-size: 50px;
+  border-left: 5px solid dodgerblue;
+  padding: 0px;
+  color: #000;
+  letter-spacing: 2px;
+  font-weight: bold;
+  padding-left: 10px;
+}
+
+h5.textoMess {
+  text-align:left;
+  font-size: 15px;
+	border-left: 5px solid #641E16;
+  color: #000;
+  letter-spacing: 5px;
+  margin-bottom: 20px;
+  font-weight: bold;
+  padding-left: 10px;
+  margin-left:54px;
+}
+
+h6 {
+  text-align:left;
+  font-size: 15px;
+  color: #000;
+  margin-bottom: 10px;
+  font-weight: bold;
+  padding-left: 20px;
+}
+
 
 /* Editar css de paginas especificas*/
 
 
-/* Editar footer*/
+/* Editar footer
 footer#colophon.site-footer{
 		position:fixed;
-		top:90%; left: 0; right: 0;
+		top:85%; left: 0; right: 0;
 		width:100%;
 }
+*/
