@@ -1,0 +1,48 @@
+<?php
+session_start();
+if(isset($_SESSION["id"])){    //Cuando este la session iniciada te muestra la pagina
+
+?>
+
+<!-- *************** HTML *************   -->
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Eleccion factura</title>
+  <style>
+        input { 
+	     width: 50%; 
+	     margin-bottom: 5px; 
+        }
+  </style>
+  </head>
+  <body>
+
+    <h3>ELECCION DE FACTURAS</h3>
+
+<!-- HMTL FORMULARIO ELEGUIR GASTOS O DIETA -->
+<form action="" method="POST">
+      <input type="submit" value="ESTAR MENOS DE 4 DÍAS" name="gastosBottom"/>
+      <input type="submit" value="ESTAR MAS DE 4 DÍAS" name="dietaBotton"/>
+</form>
+
+
+<?php
+if(isset($_POST["gastosBottom"])){
+    header('Location: http://www.grupo2ciber.com/?page_id=164'); //redirigirte a la pagina inicio "?page_id"--> nombre de la pagina (GASTO)
+}  //isset gasto
+
+if(isset($_POST["dietaBotton"])){
+    header('Location: http://www.grupo2ciber.com/?page_id=168'); //redirigirte a la pagina inicio "?page_id"--> nombre de la pagina (Dieta)
+} //isset dieta
+?>
+
+</body>
+</html>
+
+<?php
+} else {
+      header('Location: https://www.grupo2ciber.com');     //Te redirige a la pagina de "LOGIN"
+}
+?>
