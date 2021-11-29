@@ -12,6 +12,7 @@ body {
 header.entry-header.ast-header-without-markup{
 		width:0px;
 		height:0px;
+		display:none;
 }
 
 .entry-title {
@@ -43,6 +44,7 @@ div#secondary.widget-area.secondary{
 	width:0;
 	height:0;
 	padding-left:0;
+	display:none;
 }
 
 /* EDITAR PAGINAS GLOBALES PARA TODAS */

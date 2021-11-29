@@ -1,0 +1,88 @@
+<?php
+session_start();
+if(isset($_SESSION["id"])){    //Cuando este la session iniciada te muestra la pagina
+
+?>
+
+<!-- *****************   HTML   ***************  -->
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Inicio</title>  
+    <style>
+       body {
+         margin: 0;
+         padding: 0;
+         box-sizing: border-box;
+         justify-content: center;
+         align-items: center;
+  
+      }
+
+#over
+{
+    position:relative;
+    width:100%;
+    height:100%;
+    text-align: center; /*handles the horizontal centering*/
+}
+
+/*handles the vertical centering*/
+.Centerer
+{
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+}
+.Centered
+{
+    display: inline-block;
+    vertical-align: middle;
+}
+
+    </style>
+
+  <body>
+
+<?php
+//echo "Usuario: ".$_SESSION["usuario"];
+//echo "Id: ".$_SESSION["id"];
+//echo "Rol: ".$_SESSION["rol"];
+
+?>
+
+<div class="contit" id="over">
+<span class="Centerer"></span>
+<img class="Centered" src="https://www.grupo2ciber.com/wp-content/uploads/2021/11/Automon_LogoBluedited3.png" alt="Imagen de Usuario" width="300" height="250"/>
+</div>
+
+<p align="justify">
+Nuestro objetivo es la satisfacción de nuestros clientes. Las necesidades de cada uno son analizadas minuciosamente 
+para realizar una implantación que se adapte a los requerimientos de sus empresas. Los buenos resultados se traducen en 
+relaciones estables y duraderas
+</p>
+<h4>¿QUIENES SOMOS?</h4>
+<p align="justify">
+Somos una empresa española de TIC recientemente fundada con un objetivo sencillo: ser el socio de confianza de nuestros clientes cuando se enfrentan a retos digitales. Para ello, seleccionamos para nuestros clientes a los consultores que mejor se adaptan a sus necesidades. Estamos convencidos de que la experiencia combinada con los valores humanos conduce a la grandeza.
+</p>
+<h4>¿Nuestra visión?</h4>
+<p align="justify">
+Convertirnos en una empresa de referencia en el mundo digital con un gran respeto al capital humano.
+</p>
+<h4>Nuestro equipo</h4>
+<p align="justify">
+Nuestro equipo constituye el corazón de AUTOMON y estamos muy orgullosos de todos 
+y cada uno de sus miembros. Miembros llenos de mucho talento. 
+</p>
+
+
+
+</body>
+</html>
+
+<?php
+} else {
+      header('Location: https://www.grupo2ciber.com');     //Te redirige a la pagina de "LOGIN"
+}
+?>

@@ -1,0 +1,26 @@
+<?php
+session_start();
+if(isset($_SESSION["id"])){    //Cuando este la session iniciada te muestra la pagina
+?>
+
+<!DOCTYPE html>
+<html>
+  	<head>
+    		<meta charset="utf-8">
+    		<title>ACERCA DE WEB</title>
+  	</head>
+
+  	<body>
+<h3>WEB</h3>
+<p>Aplicacion Web:  Wordpress</p>
+<p>Version de Aplicacion:  1.0</p>
+<p>Thema del sitio web:  Astra</p>
+<p></p>
+
+        </body>
+</html>
+<?php
+} else {
+      header('Location: https://www.grupo2ciber.com');     //Te redirige a la pagina de "LOGIN"
+}
+?>

@@ -1,0 +1,204 @@
+<?php
+session_start();
+if(isset($_SESSION["id"])){    //Cuando este la session iniciada te muestra la pagina
+?>
+ 
+<!-- **********************  HTML   *************   -->
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Dieta</title>
+  <style>
+        input { 
+	     width: 260px; 
+	     margin-bottom: -20px;
+             margin-top: -20px;
+        }
+        select {
+             width: 260px;
+             margin-top: -20px;
+             margin-bottom: -20px;
+        }
+        input[type=text] {
+             width: 260px;
+             margin-bottom: 13px;
+             margin-top: -25px;  
+        }
+        #tarjetaId {
+             margin-bottom: 25px;
+        }
+        }
+        input[type="submit"]{
+             width: 285px;
+        }
+
+  </style>
+  </head>
+  <body>
+       <h3>DIETA</h3>
+<form method="post" action="">
+
+<?php
+    $server = 'localhost';
+    $username = 'user_wordpress';
+    $password = '%myU_w3sql';
+    $database = 'wordpress';
+
+    try {
+        $base = new PDO("mysql:host=$server;dbname=$database;", $username, $password);
+        $base->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        
+        $sql1="SELECT * FROM proyecto";
+        $sql2="SELECT * FROM departamento";
+        $resultadoP=$base->prepare($sql1);
+        $resultadoD=$base->prepare($sql2);
+        $resultadoP->execute();
+        $resultadoD->execute();
+
+    } catch (PDOException $e) {
+        die('Connection Failed: ' . $e->getMessage());
+    } //catch
+?>
+      <h5>Seleccione el departamento: </h5>
+      <select id="departamentoId" name="IdDepartamento" >
+              <option selected="true" disabled="disabled">Eleccion de departamentos</option>
+              <option value="null"><?php echo "Sin valor" ;?></option>
+<?php
+               foreach ($resultadoD as $row1) {	//extrae los datos de la sql "El select" para crear la sesion abajo
+		     extract($row1);
+
+?>
+        <option value="<?php echo $intIdDepartamento; ?>"><?php echo $vchNombre;?></option>
+
+<?php
+} //cierre foreach
+
+?>
+</select>
+<p>
+<p>
+      <h5>Seleccione el proyecto: </h5>
+      <select id="proyectoId" name="IdProyecto" >
+              <option selected="true" disabled="disabled">Eleccion de proyecto</option>
+              <option value="null"><?php echo "Sin valor" ;?></option>
+
+<?php
+               foreach ($resultadoP as $row2) {	//extrae los datos de la sql "El select" para crear la sesion abajo
+		     extract($row2);
+?>
+        <option value="<?php echo $intIdProyecto; ?>"><?php echo $vchNombre;?></option>
+
+<?php
+} //cierre foreach
+?>
+</select>
+<p>
+
+       <h5>Pais:</h5><input type="text"   name="pais" placeholder="Añadir el pais" required="">
+       <h5>Ciudad:</h5><input type="text"   name="ciudad" placeholder="Añadir la ciudad" required="">
+       <h5>Fecha Inicio:</h5> <input type="date" name="fecIni" placeholder="Añadir fecha inicial" required=""></p>
+       <h5>Fecha Fin: </h5><input type="date" name="fecFin" placeholder="Añadir fecha final" required=""></p>
+
+        <select id="tarjetaId" name="tarjetaS" >
+              <option selected="true" disabled="disabled">Eleccion de Tarjeta</option>
+              <option value="1">Internacional</option>
+              <option value="2">Europea</option>
+        </select>
+
+	<p><input type="submit" name="insertarD" value="Insertar Dieta"></p>
+
+
+
+<?php
+if(isset($_POST["insertarD"])){
+
+   $Inter=$_POST["tarjetaS"];
+   if($_POST["tarjetaS"]=$Inter){
+
+    $server = 'localhost';
+    $username = 'user_wordpress';
+    $password = '%myU_w3sql';
+    $database = 'wordpress';
+
+    try {
+        $base1 = new PDO("mysql:host=$server;dbname=$database;", $username, $password);
+        $base1->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+       $iddep=$_POST["IdDepartamento"];
+       $Idpro=$_POST["IdProyecto"];   
+   
+$sql="insert into gastos (intIdProyecto, intIdDepartamento, intIdUser, dateFechaHora, dateFechaInicio, dateFechafin, vchPais, vchCiudad, dateDiasTotales, doubleTotalFactura) values ($Idpro, $iddep, :id, CURRENT_TIMESTAMP(), :fecini, :fecfin, :pais, :ciudad, datediff(:fecfin,:fecini), datediff(:fecfin,:fecini)*100 )";
+
+           $stmt= $base->prepare($sql);
+           $stmt->bindValue(':id', $_SESSION["id"]);
+           $stmt->bindValue(':fecfin', $_POST['fecFin']);
+           $stmt->bindValue(':fecini', $_POST['fecIni']);
+           $stmt->bindValue(':ciudad', $_POST['ciudad']);
+           $stmt->bindValue(':pais', $_POST['pais']);
+           
+        if ($stmt->execute()) {
+           $message = "Dieta Internacional insertada correctamente";
+           echo $message;
+
+       } else {
+           $message = "Error al insertar dieta";
+           echo $message;
+
+       }
+
+    } catch (PDOException $e) {
+        die('Connection Failed: ' . $e->getMessage());
+    } //catch
+
+} else {
+
+    $server = 'localhost';
+    $username = 'user_wordpress';
+    $password = '%myU_w3sql';
+    $database = 'wordpress';
+
+    try {
+        $base1 = new PDO("mysql:host=$server;dbname=$database;", $username, $password);
+        $base1->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+       $iddep=$_POST["IdDepartamento"];
+       $Idpro=$_POST["IdProyecto"];   
+   
+$sql="insert into gastos (intIdProyecto, intIdDepartamento, intIdUser, dateFechaHora, dateFechaInicio, dateFechafin, vchPais, vchCiudad, dateDiasTotales, doubleTotalFactura) values ($Idpro, $iddep, :id, CURRENT_TIMESTAMP(), :fecini, :fecfin, :pais, :ciudad, datediff(:fecfin,:fecini), datediff(:fecfin,:fecini)*60 )";
+
+           $stmt= $base->prepare($sql);
+           $stmt->bindValue(':id', $_SESSION["id"]);
+           $stmt->bindValue(':fecfin', $_POST['fecFin']);
+           $stmt->bindValue(':fecini', $_POST['fecIni']);
+           $stmt->bindValue(':ciudad', $_POST['ciudad']);
+           $stmt->bindValue(':pais', $_POST['pais']);
+           
+        if ($stmt->execute()) {
+           $message = "Dieta Europea insertada correctamente";
+           echo $message;
+
+       } else {
+           $message = "Error al insertar dieta";
+           echo $message;
+
+       }
+
+    } catch (PDOException $e) {
+        die('Connection Failed: ' . $e->getMessage());
+    } //catch
+
+
+}
+}//***************** 1-login session
+
+?>
+
+</body>
+</html>
+
+<?php
+} else {
+      header('Location: https://www.grupo2ciber.com');     //Te redirige a la pagina de "LOGIN"
+}
+?>
