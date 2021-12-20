@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/nav_home">
+
+    <fragment
+        android:id="@+id/nav_home"
+        android:name="com.example.disenofinal2bien.Interfaz.Inicio.FragmentoInicio"
+        android:label="@string/menu_inicio"
+        tools:layout="@layout/fragmento_inicio" >
+        <action
+            android:id="@+id/action_nav_home_to_nav_gastos"
+            app:destination="@id/nav_gastos" />
+        <action
+            android:id="@+id/action_nav_home_to_fragmentPerfil"
+            app:destination="@id/nav_gastos" />
+        <action
+            android:id="@+id/action_nav_home_to_nav_perfil"
+            app:destination="@id/nav_perfil" />
+        <action
+            android:id="@+id/action_nav_home_to_fragmentFichaje"
+            app:destination="@id/nav_fichar" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_perfil"
+        android:name="com.example.disenofinal2bien.Interfaz.Perfil.FragmentPerfil"
+        android:label="@string/menu_perfil"
+        tools:layout="@layout/fragmento_perfil" />
+    <fragment
+        android:id="@+id/nav_gastos"
+        android:name="com.example.disenofinal2bien.Interfaz.Gastos.FragmentGastos"
+        android:label="Mis Gastos"
+        tools:layout="@layout/fragment_gastos" />
+    <fragment
+        android:id="@+id/nav_fichar"
+        android:name="com.example.disenofinal2bien.Interfaz.Fichaje.FragmentoFichaje"
+        android:label="Tus registros de jornada"
+        tools:layout="@layout/fragmento_fichaje" />
+</navigation>
