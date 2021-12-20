@@ -1,0 +1,68 @@
+
+# BEGIN WordPress
+# The directives (lines) between "BEGIN WordPress" and "END WordPress" are
+# dynamically generated, and should only be modified via WordPress filters.
+# Any changes to the directives between these markers will be overwritten.
+
+# END WordPress
+
+# Disable directory browsing
+Options All -Indexes
+
+# Deny access to wp-config.php file
+<files wp-config.php>
+order allow,deny
+deny from all
+</files>
+
+<files xmlrpc.php>
+order allow,deny
+deny from all
+</files>
+
+# bloquear xmlrpc.php
+<IfModule mod_alias.c>
+	RedirectMatch 403 (?i)/xmlrpc.php
+</IfModule>
+
+<files .htaccess>
+order allow,deny
+deny from all
+</files>
+
+# Añadir cabeceras de seguridad
+<IfModule mod_headers.c>
+        Header set X-XSS-Protection "1; mode=block"
+        Header always append X-Frame-Options SAMEORIGIN
+        Header set X-Content-Type-Options nosniff
+        Header set Referrer-Policy: no-referrer
+        Header set Feature-Policy: "geolocation none"
+        Header set Strict-Transport-Security "max-age=31536000;includeSubDomain$
+</IfModule>
+
+
+
+
+# BEGIN block author scans
+
+RewriteEngine On
+RewriteBase /
+RewriteCond %{QUERY_STRING} (author=\d+) [NC]
+RewriteRule .* - [F]
+
+# END block author scans
+
+
+<files ~ "^.*\.([Hh][Tt][Aa])">
+order allow,deny
+deny from all
+satisfy all
+</files>
+
+# Disable the Server Signature 
+ServerSignature Off
+
+<files error_log>
+Order allow,deny
+Deny from all
+</files>

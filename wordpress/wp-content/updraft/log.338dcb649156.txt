@@ -1,0 +1,401 @@
+0000.000 (0) Opened log file at time: Tue, 16 Nov 2021 07:41:06 +0000 on https://www.grupo2ciber.com
+0000.001 (0) UpdraftPlus WordPress backup plugin (https://updraftplus.com): 1.16.63 WP: 5.8.2 PHP: 7.3.31-1~deb10u1 (apache2handler, Linux 2asir 4.19.0-18-amd64 #1 SMP Debian 4.19.208-1 (2021-09-29) x86_64) MySQL: 10.3.31-MariaDB-0+deb10u1 (max packet size=16777216) WPLANG: en_US Server: Apache/2.4.38 (Debian) safe_mode: 0 max_execution_time: 900 memory_limit: 256M (used: 10.9M | 2M) multisite: N openssl: OpenSSL 1.1.1d  10 Sep 2019 mcrypt: N LANG: C ZipArchive::addFile: N
+0000.003 (0) Free space on disk containing Updraft's temporary directory: 10128.2 MB
+0000.005 (0) Tasks: Backup files: 1 (schedule: manual) Backup DB: 1 (schedule: manual)
+0000.007 (0) Requesting semaphore lock (fd) (apparently not via scheduler)
+0000.013 (0) Set semaphore last lock (fd) time to 2021-11-16 07:41:06
+0000.014 (0) Semaphore lock (fd) complete
+0000.019 (0) Backup run: resumption=0, nonce=338dcb649156, file_nonce=338dcb649156 begun at=1637048466 (0s ago), job type=backup
+0000.023 (0) Scheduling a resumption (1) after 300 seconds (1637048766) in case this run gets aborted
+0000.027 (0) Checking if we have a zip executable available
+0000.029 (0) Zip engine: ZipArchive (a.k.a. php-zip) is not available or is disabled (will use PclZip (much slower) if needed)
+0000.032 (0) Creation of backups of directories: beginning
+0000.040 (0) Beginning creation of dump of plugins (split every: 400 MB)
+0000.090 (0) Total entities for the zip file: 447 directories, 2820 files (0 skipped as non-modified), 49.8 MB
+0000.095 (0) Only one archive required (UpdraftPlus_PclZip) - will attempt to do in single operation (data: 50965.9 KB, split: 409600 KB)
+0000.099 (0) Zip: backup_2021-11-16-0741_grupo2ciber_338dcb649156-plugins.zip.tmp: 100 files added (on-disk size: 0 KB)
+0000.102 (0) Zip: backup_2021-11-16-0741_grupo2ciber_338dcb649156-plugins.zip.tmp: 200 files added (on-disk size: 0 KB)
+0000.104 (0) Zip: backup_2021-11-16-0741_grupo2ciber_338dcb649156-plugins.zip.tmp: 300 files added (on-disk size: 0 KB)
+0000.105 (0) Zip: backup_2021-11-16-0741_grupo2ciber_338dcb649156-plugins.zip.tmp: 400 files added (on-disk size: 0 KB)
+0000.106 (0) Zip: backup_2021-11-16-0741_grupo2ciber_338dcb649156-plugins.zip.tmp: 500 files added (on-disk size: 0 KB)
+0000.108 (0) Zip: backup_2021-11-16-0741_grupo2ciber_338dcb649156-plugins.zip.tmp: 600 files added (on-disk size: 0 KB)
+0000.109 (0) Zip: backup_2021-11-16-0741_grupo2ciber_338dcb649156-plugins.zip.tmp: 700 files added (on-disk size: 0 KB)
+0000.112 (0) Zip: backup_2021-11-16-0741_grupo2ciber_338dcb649156-plugins.zip.tmp: 800 files added (on-disk size: 0 KB)
+0000.113 (0) Zip: backup_2021-11-16-0741_grupo2ciber_338dcb649156-plugins.zip.tmp: 900 files added (on-disk size: 0 KB)
+0000.114 (0) Zip: backup_2021-11-16-0741_grupo2ciber_338dcb649156-plugins.zip.tmp: 1000 files added (on-disk size: 0 KB)
+0000.116 (0) Zip: backup_2021-11-16-0741_grupo2ciber_338dcb649156-plugins.zip.tmp: 1100 files added (on-disk size: 0 KB)
+0000.117 (0) Zip: backup_2021-11-16-0741_grupo2ciber_338dcb649156-plugins.zip.tmp: 1200 files added (on-disk size: 0 KB)
+0000.118 (0) Zip: backup_2021-11-16-0741_grupo2ciber_338dcb649156-plugins.zip.tmp: 1300 files added (on-disk size: 0 KB)
+0000.120 (0) Zip: backup_2021-11-16-0741_grupo2ciber_338dcb649156-plugins.zip.tmp: 1400 files added (on-disk size: 0 KB)
+0000.121 (0) Zip: backup_2021-11-16-0741_grupo2ciber_338dcb649156-plugins.zip.tmp: 1500 files added (on-disk size: 0 KB)
+0000.122 (0) Zip: backup_2021-11-16-0741_grupo2ciber_338dcb649156-plugins.zip.tmp: 1600 files added (on-disk size: 0 KB)
+0000.124 (0) Zip: backup_2021-11-16-0741_grupo2ciber_338dcb649156-plugins.zip.tmp: 1700 files added (on-disk size: 0 KB)
+0000.125 (0) Zip: backup_2021-11-16-0741_grupo2ciber_338dcb649156-plugins.zip.tmp: 1800 files added (on-disk size: 0 KB)
+0000.126 (0) Zip: backup_2021-11-16-0741_grupo2ciber_338dcb649156-plugins.zip.tmp: 1900 files added (on-disk size: 0 KB)
+0000.128 (0) Zip: backup_2021-11-16-0741_grupo2ciber_338dcb649156-plugins.zip.tmp: 2000 files added (on-disk size: 0 KB)
+0000.131 (0) Zip: backup_2021-11-16-0741_grupo2ciber_338dcb649156-plugins.zip.tmp: 2100 files added (on-disk size: 0 KB)
+0000.133 (0) Zip: backup_2021-11-16-0741_grupo2ciber_338dcb649156-plugins.zip.tmp: 2200 files added (on-disk size: 0 KB)
+0000.134 (0) Zip: backup_2021-11-16-0741_grupo2ciber_338dcb649156-plugins.zip.tmp: 2300 files added (on-disk size: 0 KB)
+0000.136 (0) Zip: backup_2021-11-16-0741_grupo2ciber_338dcb649156-plugins.zip.tmp: 2400 files added (on-disk size: 0 KB)
+0000.137 (0) Zip: backup_2021-11-16-0741_grupo2ciber_338dcb649156-plugins.zip.tmp: 2500 files added (on-disk size: 0 KB)
+0000.138 (0) Zip: backup_2021-11-16-0741_grupo2ciber_338dcb649156-plugins.zip.tmp: 2600 files added (on-disk size: 0 KB)
+0000.140 (0) Zip: backup_2021-11-16-0741_grupo2ciber_338dcb649156-plugins.zip.tmp: 2700 files added (on-disk size: 0 KB)
+0000.141 (0) Zip: backup_2021-11-16-0741_grupo2ciber_338dcb649156-plugins.zip.tmp: 2800 files added (on-disk size: 0 KB)
+0006.112 (0) Creating zip file manifest (/var/www/wordpress/wp-content/updraft/backup_2021-11-16-0741_grupo2ciber_338dcb649156-plugins.zip.list-temp.tmp)
+0006.117 (0) Successfully created zip file manifest (size: 232884)
+0006.250 (0) Created plugins zip (0) - 17755.9 KB in 6.2 s (2859.9 KB/s) (sha1: a8a2f8a674c94075076e33565f9cf73991c3d79a, sha256: f15f25854ccca325b43b84364eb78811a9d36ac4c93bcdd7d5cf9a06e9898e08)
+0006.262 (0) Beginning creation of dump of themes (split every: 400 MB)
+0006.279 (0) Total entities for the zip file: 291 directories, 657 files (0 skipped as non-modified), 21.1 MB
+0006.283 (0) Only one archive required (UpdraftPlus_PclZip) - will attempt to do in single operation (data: 21604 KB, split: 409600 KB)
+0006.286 (0) Zip: backup_2021-11-16-0741_grupo2ciber_338dcb649156-themes.zip.tmp: 100 files added (on-disk size: 0 KB)
+0006.291 (0) Zip: backup_2021-11-16-0741_grupo2ciber_338dcb649156-themes.zip.tmp: 200 files added (on-disk size: 0 KB)
+0006.294 (0) Zip: backup_2021-11-16-0741_grupo2ciber_338dcb649156-themes.zip.tmp: 300 files added (on-disk size: 0 KB)
+0006.296 (0) Zip: backup_2021-11-16-0741_grupo2ciber_338dcb649156-themes.zip.tmp: 400 files added (on-disk size: 0 KB)
+0006.297 (0) Zip: backup_2021-11-16-0741_grupo2ciber_338dcb649156-themes.zip.tmp: 500 files added (on-disk size: 0 KB)
+0006.298 (0) Zip: backup_2021-11-16-0741_grupo2ciber_338dcb649156-themes.zip.tmp: 600 files added (on-disk size: 0 KB)
+0007.426 (0) Creating zip file manifest (/var/www/wordpress/wp-content/updraft/backup_2021-11-16-0741_grupo2ciber_338dcb649156-themes.zip.list-temp.tmp)
+0007.430 (0) Successfully created zip file manifest (size: 57079)
+0007.485 (0) Created themes zip (0) - 5928.8 KB in 1.2 s (4858.3 KB/s) (sha1: 72489523ee278d7c7db9dabe8a7796fc8e4c9e1d, sha256: 9593e38d0ebd16cddc12ae38edc0f0a888535a84f533f034cc711c25428ebb49)
+0007.498 (0) Exclusion option setting (uploads): backup*,*backups,backwpup*,wp-clone,snapshots
+0007.499 (0) Looking for candidates to backup in: /var/www/wordpress/wp-content/uploads
+0007.501 (0) finding files: 2021: adding to list (1)
+0007.501 (0) finding files: logs: adding to list (2)
+0007.502 (0) finding files: ultimatemember: adding to list (3)
+0007.506 (0) Beginning creation of dump of uploads (split every: 400 MB)
+0007.521 (0) Total entities for the zip file: 6 directories, 6 files (0 skipped as non-modified), 0.1 MB
+0007.523 (0) Only one archive required (UpdraftPlus_PclZip) - will attempt to do in single operation (data: 64.7 KB, split: 409600 KB)
+0007.535 (0) Creating zip file manifest (/var/www/wordpress/wp-content/updraft/backup_2021-11-16-0741_grupo2ciber_338dcb649156-uploads.zip.list-temp.tmp)
+0007.537 (0) Successfully created zip file manifest (size: 277)
+0007.552 (0) Created uploads zip (0) - 65.5 KB in 0 s (1585.3 KB/s) (sha1: 1d4022acbd34bb8cb50cfb20b86fa7d990b4b50b, sha256: 03321c768060975d83bd6293124839ec6f94b23b8ebc8f9e67eb28b0e796f72d)
+0007.559 (0) Beginning backup of other directories found in the content directory (index: 0)
+0007.563 (0) Exclusion option setting (others): upgrade,cache,updraft,backup*,*backups,mysql.sql,debug.log
+0007.564 (0) Looking for candidates to backup in: /var/www/wordpress/wp-content
+0007.565 (0) finding files: languages: adding to list (1)
+0007.568 (0) finding files: index.php: adding to list (2)
+0007.569 (0) finding files: plugins: skipping: this is the plugins directory
+0007.571 (0) finding files: updraft: skipping: this is the updraft directory
+0007.575 (0) finding files: upgrade: skipping: excluded by options
+0007.578 (0) finding files: wflogs: adding to list (3)
+0007.583 (0) finding files: uploads: skipping: this is the uploads directory
+0007.585 (0) finding files: ai1wm-backups: skipping: excluded by options (glob)
+0007.590 (0) finding files: themes: skipping: this is the themes directory
+0007.595 (0) Total entities for the zip file: 3 directories, 11 files (0 skipped as non-modified), 5.7 MB
+0007.598 (0) Only one archive required (UpdraftPlus_PclZip) - will attempt to do in single operation (data: 5848.5 KB, split: 409600 KB)
+0007.964 (0) Creating zip file manifest (/var/www/wordpress/wp-content/updraft/backup_2021-11-16-0741_grupo2ciber_338dcb649156-others.zip.list-temp.tmp)
+0007.966 (0) Successfully created zip file manifest (size: 363)
+0007.994 (0) Created others zip (0) - 2727.6 KB in 0.4 s (6785.8 KB/s) (sha1: 44be52c991fb3f0e41602f319ba3092664bb64e7, sha256: 1a400028740fcf4fe85155745073a2ee085d1dd5449a42715cfd30a2796aea94)
+0008.008 (0) Saving backup status to database (elements: 8)
+0008.012 (0) Beginning creation of database dump (WordPress DB)
+0008.012 (0) SQL compatibility mode is: ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION
+0008.015 (0) Testing potential mysqldump binary: /usr/bin/mysqldump
+0008.024 (0) Output: /*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;\n/*!40103 SET TIME_ZONE='+00:00' */;\n/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;\n/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;\n/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;\n/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;\nDROP TABLE IF EXISTS `mkdwp_options`;\n/*!40101 SET @saved_cs_client     = @@character_set_client */;\n/*!40101 SET character_set_client = utf8 */;\n (truncated - 1546 bytes total)
+0008.026 (0) Working binary mysqldump found: /usr/bin/mysqldump
+0008.052 (0) Table mkdwp_options: Total expected rows (via COUNT): 258
+0008.054 (0) Table is relatively small; fetch_rows will thus be: 500 (allow_further_reductions=1, is_first_fetch=1, known_bigger_than_table=1)
+0008.075 (0) Table mkdwp_options: Rows added in this batch (next record: 1311): 254 (uncompressed bytes in this segment=434467) in 0.03 seconds
+0008.086 (0) Table mkdwp_options: finishing file(s) (2, 63 KB)
+0008.091 (0) Table mkdwp_users: Total expected rows (via COUNT): 1
+0008.096 (0) Table is relatively small; fetch_rows will thus be: 20 (allow_further_reductions=1, is_first_fetch=1, known_bigger_than_table=1)
+0008.100 (0) Table mkdwp_users: Rows added in this batch (next record: 1): 1 (uncompressed bytes in this segment=1398) in 0.01 seconds
+0008.111 (0) Table mkdwp_users: finishing file(s) (2, 0.6 KB)
+0008.125 (0) Table mkdwp_usermeta: Total expected rows (via COUNT): 24
+0008.126 (0) Table is relatively small; fetch_rows will thus be: 20 (allow_further_reductions=1, is_first_fetch=1, known_bigger_than_table=1)
+0008.128 (0) Table mkdwp_usermeta: Rows added in this batch (next record: 25): 24 (uncompressed bytes in this segment=2237) in 0.01 seconds
+0008.146 (0) Table mkdwp_usermeta: finishing file(s) (2, 1.1 KB)
+0008.159 (0) Table mkdwp_commentmeta: Total expected rows (via COUNT): 0
+0008.162 (0) Table mkdwp_commentmeta: Rows added in this batch (next record: -1): 0 (uncompressed bytes in this segment=702) in 0.01 seconds
+0008.178 (0) Table mkdwp_commentmeta: finishing file(s) (2, 0.4 KB)
+0008.184 (0) Table mkdwp_comments: Total expected rows (via COUNT): 0
+0008.192 (0) Table mkdwp_comments: Rows added in this batch (next record: -1): 0 (uncompressed bytes in this segment=1696) in 0.01 seconds
+0008.219 (0) Table mkdwp_comments: finishing file(s) (2, 0.5 KB)
+0008.234 (0) Table mkdwp_links: Total expected rows (via COUNT): 0
+0008.239 (0) Table mkdwp_links: Rows added in this batch (next record: -1): 0 (uncompressed bytes in this segment=1284) in 0.01 seconds
+0008.246 (0) Table mkdwp_links: finishing file(s) (2, 0.5 KB)
+0008.259 (0) Table mkdwp_postmeta: Total expected rows (via COUNT): 406
+0008.261 (0) Table is relatively small; fetch_rows will thus be: 500 (allow_further_reductions=1, is_first_fetch=1, known_bigger_than_table=1)
+0008.265 (0) Table mkdwp_postmeta: Rows added in this batch (next record: 450): 406 (uncompressed bytes in this segment=27530) in 0.01 seconds
+0008.274 (0) Table mkdwp_postmeta: finishing file(s) (2, 4.8 KB)
+0008.293 (0) Table mkdwp_posts: Total expected rows (via COUNT): 322
+0008.295 (0) Table is relatively small; fetch_rows will thus be: 500 (allow_further_reductions=1, is_first_fetch=1, known_bigger_than_table=1)
+0008.339 (0) Table mkdwp_posts: Rows added in this batch (next record: 388): 322 (uncompressed bytes in this segment=2731129) in 0.05 seconds
+0008.348 (0) Table mkdwp_posts: finishing file(s) (2, 189.7 KB)
+0008.350 (0) Table mkdwp_term_relationships: Total expected rows (approximate): 13
+0008.358 (0) Table mkdwp_term_relationships: Rows added in this batch (next record: 100000): 13 (uncompressed bytes in this segment=879) in 0.01 seconds
+0008.365 (0) Table mkdwp_term_relationships: finishing file(s) (2, 0.4 KB)
+0008.374 (0) Table mkdwp_term_taxonomy: Total expected rows (via COUNT): 3
+0008.377 (0) Table is relatively small; fetch_rows will thus be: 20 (allow_further_reductions=1, is_first_fetch=1, known_bigger_than_table=1)
+0008.410 (0) Table mkdwp_term_taxonomy: Rows added in this batch (next record: 5): 3 (uncompressed bytes in this segment=992) in 0.04 seconds
+0008.424 (0) Table mkdwp_term_taxonomy: finishing file(s) (2, 0.5 KB)
+0008.435 (0) Table mkdwp_termmeta: Total expected rows (via COUNT): 0
+0008.440 (0) Table mkdwp_termmeta: Rows added in this batch (next record: -1): 0 (uncompressed bytes in this segment=675) in 0.01 seconds
+0008.454 (0) Table mkdwp_termmeta: finishing file(s) (2, 0.4 KB)
+0008.464 (0) Table mkdwp_terms: Total expected rows (via COUNT): 3
+0008.470 (0) Table is relatively small; fetch_rows will thus be: 20 (allow_further_reductions=1, is_first_fetch=1, known_bigger_than_table=1)
+0008.478 (0) Table mkdwp_terms: Rows added in this batch (next record: 5): 3 (uncompressed bytes in this segment=803) in 0.01 seconds
+0008.489 (0) Table mkdwp_terms: finishing file(s) (2, 0.4 KB)
+0008.489 (0) Skipping table (lacks our prefix (mkdwp_)): departamento
+0008.490 (0) Skipping table (lacks our prefix (mkdwp_)): fichar
+0008.491 (0) Skipping table (lacks our prefix (mkdwp_)): gastos
+0008.503 (0) Table mkdwp_actionscheduler_actions: Total expected rows (via COUNT): 3
+0008.506 (0) Table is relatively small; fetch_rows will thus be: 20 (allow_further_reductions=1, is_first_fetch=1, known_bigger_than_table=1)
+0008.509 (0) Table mkdwp_actionscheduler_actions: Rows added in this batch (next record: 259): 3 (uncompressed bytes in this segment=2663) in 0.01 seconds
+0008.521 (0) Table mkdwp_actionscheduler_actions: finishing file(s) (2, 0.8 KB)
+0008.527 (0) Table mkdwp_actionscheduler_claims: Total expected rows (via COUNT): 0
+0008.534 (0) Table mkdwp_actionscheduler_claims: Rows added in this batch (next record: -1): 0 (uncompressed bytes in this segment=629) in 0.01 seconds
+0008.559 (0) Table mkdwp_actionscheduler_claims: finishing file(s) (2, 0.4 KB)
+0008.565 (0) Table mkdwp_actionscheduler_groups: Total expected rows (via COUNT): 1
+0008.568 (0) Table is relatively small; fetch_rows will thus be: 20 (allow_further_reductions=1, is_first_fetch=1, known_bigger_than_table=1)
+0008.576 (0) Table mkdwp_actionscheduler_groups: Rows added in this batch (next record: 1): 1 (uncompressed bytes in this segment=702) in 0.01 seconds
+0008.589 (0) Table mkdwp_actionscheduler_groups: finishing file(s) (2, 0.4 KB)
+0008.598 (0) Table mkdwp_actionscheduler_logs: Total expected rows (via COUNT): 5
+0008.600 (0) Table is relatively small; fetch_rows will thus be: 20 (allow_further_reductions=1, is_first_fetch=1, known_bigger_than_table=1)
+0008.601 (0) Table mkdwp_actionscheduler_logs: Rows added in this batch (next record: 5): 5 (uncompressed bytes in this segment=1242) in 0.00 seconds
+0008.615 (0) Table mkdwp_actionscheduler_logs: finishing file(s) (2, 0.5 KB)
+0008.636 (0) Table mkdwp_um_metadata: Total expected rows (via COUNT): 0
+0008.647 (0) Table mkdwp_um_metadata: Rows added in this batch (next record: -1): 0 (uncompressed bytes in this segment=737) in 0.02 seconds
+0008.661 (0) Table mkdwp_um_metadata: finishing file(s) (2, 0.4 KB)
+0008.666 (0) Table mkdwp_wfblockediplog: Total expected rows (approximate): 0
+0008.673 (0) Table mkdwp_wfblockediplog: Rows added in this batch (next record: 0): 0 (uncompressed bytes in this segment=645) in 0.01 seconds
+0008.685 (0) Table mkdwp_wfblockediplog: finishing file(s) (2, 0.4 KB)
+0008.693 (0) Table mkdwp_wfblocks7: Total expected rows (via COUNT): 0
+0008.696 (0) Table mkdwp_wfblocks7: Rows added in this batch (next record: -1): 0 (uncompressed bytes in this segment=834) in 0.00 seconds
+0008.707 (0) Table mkdwp_wfblocks7: finishing file(s) (2, 0.4 KB)
+0008.714 (0) Table mkdwp_wfconfig: Total expected rows (approximate): 212
+0008.726 (0) Table mkdwp_wfconfig: Rows added in this batch (next record: 1000): 212 (uncompressed bytes in this segment=20096) in 0.01 seconds
+0008.737 (0) Table mkdwp_wfconfig: finishing file(s) (2, 4.8 KB)
+0008.741 (0) Table mkdwp_wfcrawlers: Total expected rows (approximate): 0
+0008.742 (0) Table mkdwp_wfcrawlers: Rows added in this batch (next record: 0): 0 (uncompressed bytes in this segment=570) in 0.00 seconds
+0008.758 (0) Table mkdwp_wfcrawlers: finishing file(s) (2, 0.3 KB)
+0008.761 (0) Table mkdwp_wffilechanges: Total expected rows (approximate): 0
+0008.765 (0) Table mkdwp_wffilechanges: Rows added in this batch (next record: 0): 0 (uncompressed bytes in this segment=470) in 0.00 seconds
+0008.775 (0) Table mkdwp_wffilechanges: finishing file(s) (2, 0.3 KB)
+0008.785 (0) Table mkdwp_wffilemods: Total expected rows (approximate): 0
+0008.790 (0) Table mkdwp_wffilemods: Rows added in this batch (next record: 0): 0 (uncompressed bytes in this segment=806) in 0.01 seconds
+0008.809 (0) Table mkdwp_wffilemods: finishing file(s) (2, 0.4 KB)
+0008.817 (0) Table mkdwp_wfhits: Total expected rows (via COUNT): 0
+0008.821 (0) Table mkdwp_wfhits: Rows added in this batch (next record: -1): 0 (uncompressed bytes in this segment=980) in 0.00 seconds
+0008.835 (0) Table mkdwp_wfhits: finishing file(s) (2, 0.5 KB)
+0008.844 (0) Table mkdwp_wfhoover: Total expected rows (via COUNT): 0
+0008.848 (0) Table mkdwp_wfhoover: Rows added in this batch (next record: -1): 0 (uncompressed bytes in this segment=533) in 0.00 seconds
+0008.861 (0) Table mkdwp_wfhoover: finishing file(s) (2, 0.3 KB)
+0008.872 (0) Table mkdwp_wfissues: Total expected rows (via COUNT): 0
+0008.874 (0) Table mkdwp_wfissues: Rows added in this batch (next record: -1): 0 (uncompressed bytes in this segment=848) in 0.00 seconds
+0008.885 (0) Table mkdwp_wfissues: finishing file(s) (2, 0.4 KB)
+0008.896 (0) Table mkdwp_wfknownfilelist: Total expected rows (via COUNT): 0
+0008.900 (0) Table mkdwp_wfknownfilelist: Rows added in this batch (next record: -1): 0 (uncompressed bytes in this segment=449) in 0.00 seconds
+0008.912 (0) Table mkdwp_wfknownfilelist: finishing file(s) (2, 0.3 KB)
+0008.921 (0) Table mkdwp_wflivetraffichuman: Total expected rows (approximate): 0
+0008.924 (0) Table mkdwp_wflivetraffichuman: Rows added in this batch (next record: 0): 0 (uncompressed bytes in this segment=666) in 0.00 seconds
+0008.940 (0) Table mkdwp_wflivetraffichuman: finishing file(s) (2, 0.3 KB)
+0008.949 (0) Table mkdwp_wflocs: Total expected rows (approximate): 0
+0008.956 (0) Table mkdwp_wflocs: Rows added in this batch (next record: 0): 0 (uncompressed bytes in this segment=696) in 0.01 seconds
+0008.965 (0) Table mkdwp_wflocs: finishing file(s) (2, 0.4 KB)
+0008.972 (0) Table mkdwp_wflogins: Total expected rows (via COUNT): 0
+0008.976 (0) Table mkdwp_wflogins: Rows added in this batch (next record: -1): 0 (uncompressed bytes in this segment=712) in 0.00 seconds
+0008.987 (0) Table mkdwp_wflogins: finishing file(s) (2, 0.4 KB)
+0008.998 (0) Table mkdwp_wfls_2fa_secrets: Total expected rows (via COUNT): 0
+0009.000 (0) Table mkdwp_wfls_2fa_secrets: Rows added in this batch (next record: -1): 0 (uncompressed bytes in this segment=699) in 0.00 seconds
+0009.011 (0) Table mkdwp_wfls_2fa_secrets: finishing file(s) (2, 0.4 KB)
+0009.018 (0) Table mkdwp_wfls_settings: Total expected rows (approximate): 19
+0009.022 (0) Table mkdwp_wfls_settings: Rows added in this batch (next record: 1000): 19 (uncompressed bytes in this segment=1628) in 0.00 seconds
+0009.034 (0) Table mkdwp_wfls_settings: finishing file(s) (2, 0.8 KB)
+0009.042 (0) Table mkdwp_wfnotifications: Total expected rows (approximate): 0
+0009.044 (0) Table mkdwp_wfnotifications: Rows added in this batch (next record: 0): 0 (uncompressed bytes in this segment=630) in 0.00 seconds
+0009.058 (0) Table mkdwp_wfnotifications: finishing file(s) (2, 0.4 KB)
+0009.067 (0) Table mkdwp_wfpendingissues: Total expected rows (via COUNT): 0
+0009.070 (0) Table mkdwp_wfpendingissues: Rows added in this batch (next record: -1): 0 (uncompressed bytes in this segment=890) in 0.00 seconds
+0009.083 (0) Table mkdwp_wfpendingissues: finishing file(s) (2, 0.4 KB)
+0009.090 (0) Table mkdwp_wfreversecache: Total expected rows (approximate): 0
+0009.095 (0) Table mkdwp_wfreversecache: Rows added in this batch (next record: 0): 0 (uncompressed bytes in this segment=515) in 0.00 seconds
+0009.102 (0) Table mkdwp_wfreversecache: finishing file(s) (2, 0.3 KB)
+0009.110 (0) Table mkdwp_wfsnipcache: Total expected rows (via COUNT): 0
+0009.117 (0) Table mkdwp_wfsnipcache: Rows added in this batch (next record: -1): 0 (uncompressed bytes in this segment=717) in 0.01 seconds
+0009.126 (0) Table mkdwp_wfsnipcache: finishing file(s) (2, 0.4 KB)
+0009.134 (0) Table mkdwp_wfstatus: Total expected rows (via COUNT): 0
+0009.137 (0) Table mkdwp_wfstatus: Rows added in this batch (next record: -1): 0 (uncompressed bytes in this segment=570) in 0.00 seconds
+0009.150 (0) Table mkdwp_wfstatus: finishing file(s) (2, 0.4 KB)
+0009.158 (0) Table mkdwp_wftrafficrates: Total expected rows (approximate): 0
+0009.162 (0) Table mkdwp_wftrafficrates: Rows added in this batch (next record: 0): 0 (uncompressed bytes in this segment=584) in 0.00 seconds
+0009.171 (0) Table mkdwp_wftrafficrates: finishing file(s) (2, 0.3 KB)
+0009.175 (0) Skipping table (lacks our prefix (mkdwp_)): proyecto
+0009.179 (0) Skipping table (lacks our prefix (mkdwp_)): usuarios
+0009.183 (0) backup_2021-11-16-0741_grupo2ciber_338dcb649156-db-table-mkdwp_options.table.tmpr1312.gz (1/43/fopen): adding to final database dump
+0009.188 (0) backup_2021-11-16-0741_grupo2ciber_338dcb649156-db-table-mkdwp_options.table.gz (2/43/fopen): adding to final database dump
+0009.192 (0) backup_2021-11-16-0741_grupo2ciber_338dcb649156-db-table-mkdwp_users.table.tmpr2.gz (3/43/fopen): adding to final database dump
+0009.196 (0) backup_2021-11-16-0741_grupo2ciber_338dcb649156-db-table-mkdwp_users.table.gz (4/43/fopen): adding to final database dump
+0009.198 (0) backup_2021-11-16-0741_grupo2ciber_338dcb649156-db-table-mkdwp_usermeta.table.tmpr26.gz (5/43/fopen): adding to final database dump
+0009.201 (0) backup_2021-11-16-0741_grupo2ciber_338dcb649156-db-table-mkdwp_usermeta.table.gz (6/43/fopen): adding to final database dump
+0009.201 (0) backup_2021-11-16-0741_grupo2ciber_338dcb649156-db-table-mkdwp_commentmeta.table.tmpr0.gz (7/43/fopen): adding to final database dump
+0009.201 (0) backup_2021-11-16-0741_grupo2ciber_338dcb649156-db-table-mkdwp_commentmeta.table.gz (8/43/fopen): adding to final database dump
+0009.204 (0) backup_2021-11-16-0741_grupo2ciber_338dcb649156-db-table-mkdwp_comments.table.tmpr0.gz (9/43/fopen): adding to final database dump
+0009.205 (0) backup_2021-11-16-0741_grupo2ciber_338dcb649156-db-table-mkdwp_comments.table.gz (10/43/fopen): adding to final database dump
+0009.208 (0) backup_2021-11-16-0741_grupo2ciber_338dcb649156-db-table-mkdwp_links.table.tmpr0.gz (11/43/fopen): adding to final database dump
+0009.209 (0) backup_2021-11-16-0741_grupo2ciber_338dcb649156-db-table-mkdwp_links.table.gz (12/43/fopen): adding to final database dump
+0009.209 (0) backup_2021-11-16-0741_grupo2ciber_338dcb649156-db-table-mkdwp_postmeta.table.tmpr451.gz (13/43/fopen): adding to final database dump
+0009.210 (0) backup_2021-11-16-0741_grupo2ciber_338dcb649156-db-table-mkdwp_postmeta.table.gz (14/43/fopen): adding to final database dump
+0009.214 (0) backup_2021-11-16-0741_grupo2ciber_338dcb649156-db-table-mkdwp_posts.table.tmpr389.gz (15/43/fopen): adding to final database dump
+0009.217 (0) backup_2021-11-16-0741_grupo2ciber_338dcb649156-db-table-mkdwp_posts.table.gz (16/43/fopen): adding to final database dump
+0009.221 (0) backup_2021-11-16-0741_grupo2ciber_338dcb649156-db-table-mkdwp_term_relationships.table.tmpr100001.gz (17/43/fopen): adding to final database dump
+0009.225 (0) backup_2021-11-16-0741_grupo2ciber_338dcb649156-db-table-mkdwp_term_relationships.table.gz (18/43/fopen): adding to final database dump
+0009.225 (0) backup_2021-11-16-0741_grupo2ciber_338dcb649156-db-table-mkdwp_term_taxonomy.table.tmpr6.gz (19/43/fopen): adding to final database dump
+0009.227 (0) backup_2021-11-16-0741_grupo2ciber_338dcb649156-db-table-mkdwp_term_taxonomy.table.gz (20/43/fopen): adding to final database dump
+0009.229 (0) backup_2021-11-16-0741_grupo2ciber_338dcb649156-db-table-mkdwp_termmeta.table.tmpr0.gz (21/43/fopen): adding to final database dump
+0009.229 (0) backup_2021-11-16-0741_grupo2ciber_338dcb649156-db-table-mkdwp_termmeta.table.gz (22/43/fopen): adding to final database dump
+0009.232 (0) backup_2021-11-16-0741_grupo2ciber_338dcb649156-db-table-mkdwp_terms.table.tmpr6.gz (23/43/fopen): adding to final database dump
+0009.233 (0) backup_2021-11-16-0741_grupo2ciber_338dcb649156-db-table-mkdwp_terms.table.gz (24/43/fopen): adding to final database dump
+0009.233 (0) backup_2021-11-16-0741_grupo2ciber_338dcb649156-db-table-mkdwp_actionscheduler_actions.table.tmpr260.gz (25/43/fopen): adding to final database dump
+0009.233 (0) backup_2021-11-16-0741_grupo2ciber_338dcb649156-db-table-mkdwp_actionscheduler_actions.table.gz (26/43/fopen): adding to final database dump
+0009.237 (0) backup_2021-11-16-0741_grupo2ciber_338dcb649156-db-table-mkdwp_actionscheduler_claims.table.tmpr0.gz (27/43/fopen): adding to final database dump
+0009.240 (0) backup_2021-11-16-0741_grupo2ciber_338dcb649156-db-table-mkdwp_actionscheduler_claims.table.gz (28/43/fopen): adding to final database dump
+0009.241 (0) backup_2021-11-16-0741_grupo2ciber_338dcb649156-db-table-mkdwp_actionscheduler_groups.table.tmpr2.gz (29/43/fopen): adding to final database dump
+0009.242 (0) backup_2021-11-16-0741_grupo2ciber_338dcb649156-db-table-mkdwp_actionscheduler_groups.table.gz (30/43/fopen): adding to final database dump
+0009.244 (0) backup_2021-11-16-0741_grupo2ciber_338dcb649156-db-table-mkdwp_actionscheduler_logs.table.tmpr6.gz (31/43/fopen): adding to final database dump
+0009.246 (0) backup_2021-11-16-0741_grupo2ciber_338dcb649156-db-table-mkdwp_actionscheduler_logs.table.gz (32/43/fopen): adding to final database dump
+0009.249 (0) backup_2021-11-16-0741_grupo2ciber_338dcb649156-db-table-mkdwp_um_metadata.table.tmpr0.gz (33/43/fopen): adding to final database dump
+0009.249 (0) backup_2021-11-16-0741_grupo2ciber_338dcb649156-db-table-mkdwp_um_metadata.table.gz (34/43/fopen): adding to final database dump
+0009.252 (0) backup_2021-11-16-0741_grupo2ciber_338dcb649156-db-table-mkdwp_wfblockediplog.table.tmpr1.gz (35/43/fopen): adding to final database dump
+0009.256 (0) backup_2021-11-16-0741_grupo2ciber_338dcb649156-db-table-mkdwp_wfblockediplog.table.gz (36/43/fopen): adding to final database dump
+0009.258 (0) backup_2021-11-16-0741_grupo2ciber_338dcb649156-db-table-mkdwp_wfblocks7.table.tmpr0.gz (37/43/fopen): adding to final database dump
+0009.265 (0) backup_2021-11-16-0741_grupo2ciber_338dcb649156-db-table-mkdwp_wfblocks7.table.gz (38/43/fopen): adding to final database dump
+0009.268 (0) backup_2021-11-16-0741_grupo2ciber_338dcb649156-db-table-mkdwp_wfconfig.table.tmpr1001.gz (39/43/fopen): adding to final database dump
+0009.269 (0) backup_2021-11-16-0741_grupo2ciber_338dcb649156-db-table-mkdwp_wfconfig.table.gz (40/43/fopen): adding to final database dump
+0009.269 (0) backup_2021-11-16-0741_grupo2ciber_338dcb649156-db-table-mkdwp_wfcrawlers.table.tmpr1.gz (41/43/fopen): adding to final database dump
+0009.271 (0) backup_2021-11-16-0741_grupo2ciber_338dcb649156-db-table-mkdwp_wfcrawlers.table.gz (42/43/fopen): adding to final database dump
+0009.273 (0) backup_2021-11-16-0741_grupo2ciber_338dcb649156-db-table-mkdwp_wffilechanges.table.tmpr1.gz (43/43/fopen): adding to final database dump
+0009.278 (0) backup_2021-11-16-0741_grupo2ciber_338dcb649156-db-table-mkdwp_wffilechanges.table.gz (44/43/fopen): adding to final database dump
+0009.281 (0) backup_2021-11-16-0741_grupo2ciber_338dcb649156-db-table-mkdwp_wffilemods.table.tmpr1.gz (45/43/fopen): adding to final database dump
+0009.282 (0) backup_2021-11-16-0741_grupo2ciber_338dcb649156-db-table-mkdwp_wffilemods.table.gz (46/43/fopen): adding to final database dump
+0009.285 (0) backup_2021-11-16-0741_grupo2ciber_338dcb649156-db-table-mkdwp_wfhits.table.tmpr0.gz (47/43/fopen): adding to final database dump
+0009.286 (0) backup_2021-11-16-0741_grupo2ciber_338dcb649156-db-table-mkdwp_wfhits.table.gz (48/43/fopen): adding to final database dump
+0009.291 (0) backup_2021-11-16-0741_grupo2ciber_338dcb649156-db-table-mkdwp_wfhoover.table.tmpr0.gz (49/43/fopen): adding to final database dump
+0009.293 (0) backup_2021-11-16-0741_grupo2ciber_338dcb649156-db-table-mkdwp_wfhoover.table.gz (50/43/fopen): adding to final database dump
+0009.294 (0) backup_2021-11-16-0741_grupo2ciber_338dcb649156-db-table-mkdwp_wfissues.table.tmpr0.gz (51/43/fopen): adding to final database dump
+0009.296 (0) backup_2021-11-16-0741_grupo2ciber_338dcb649156-db-table-mkdwp_wfissues.table.gz (52/43/fopen): adding to final database dump
+0009.297 (0) backup_2021-11-16-0741_grupo2ciber_338dcb649156-db-table-mkdwp_wfknownfilelist.table.tmpr0.gz (53/43/fopen): adding to final database dump
+0009.297 (0) backup_2021-11-16-0741_grupo2ciber_338dcb649156-db-table-mkdwp_wfknownfilelist.table.gz (54/43/fopen): adding to final database dump
+0009.298 (0) backup_2021-11-16-0741_grupo2ciber_338dcb649156-db-table-mkdwp_wflivetraffichuman.table.tmpr1.gz (55/43/fopen): adding to final database dump
+0009.300 (0) backup_2021-11-16-0741_grupo2ciber_338dcb649156-db-table-mkdwp_wflivetraffichuman.table.gz (56/43/fopen): adding to final database dump
+0009.301 (0) backup_2021-11-16-0741_grupo2ciber_338dcb649156-db-table-mkdwp_wflocs.table.tmpr1.gz (57/43/fopen): adding to final database dump
+0009.301 (0) backup_2021-11-16-0741_grupo2ciber_338dcb649156-db-table-mkdwp_wflocs.table.gz (58/43/fopen): adding to final database dump
+0009.302 (0) backup_2021-11-16-0741_grupo2ciber_338dcb649156-db-table-mkdwp_wflogins.table.tmpr0.gz (59/43/fopen): adding to final database dump
+0009.306 (0) backup_2021-11-16-0741_grupo2ciber_338dcb649156-db-table-mkdwp_wflogins.table.gz (60/43/fopen): adding to final database dump
+0009.310 (0) backup_2021-11-16-0741_grupo2ciber_338dcb649156-db-table-mkdwp_wfls_2fa_secrets.table.tmpr0.gz (61/43/fopen): adding to final database dump
+0009.313 (0) backup_2021-11-16-0741_grupo2ciber_338dcb649156-db-table-mkdwp_wfls_2fa_secrets.table.gz (62/43/fopen): adding to final database dump
+0009.314 (0) backup_2021-11-16-0741_grupo2ciber_338dcb649156-db-table-mkdwp_wfls_settings.table.tmpr1001.gz (63/43/fopen): adding to final database dump
+0009.318 (0) backup_2021-11-16-0741_grupo2ciber_338dcb649156-db-table-mkdwp_wfls_settings.table.gz (64/43/fopen): adding to final database dump
+0009.320 (0) backup_2021-11-16-0741_grupo2ciber_338dcb649156-db-table-mkdwp_wfnotifications.table.tmpr1.gz (65/43/fopen): adding to final database dump
+0009.321 (0) backup_2021-11-16-0741_grupo2ciber_338dcb649156-db-table-mkdwp_wfnotifications.table.gz (66/43/fopen): adding to final database dump
+0009.321 (0) backup_2021-11-16-0741_grupo2ciber_338dcb649156-db-table-mkdwp_wfpendingissues.table.tmpr0.gz (67/43/fopen): adding to final database dump
+0009.324 (0) backup_2021-11-16-0741_grupo2ciber_338dcb649156-db-table-mkdwp_wfpendingissues.table.gz (68/43/fopen): adding to final database dump
+0009.325 (0) backup_2021-11-16-0741_grupo2ciber_338dcb649156-db-table-mkdwp_wfreversecache.table.tmpr1.gz (69/43/fopen): adding to final database dump
+0009.325 (0) backup_2021-11-16-0741_grupo2ciber_338dcb649156-db-table-mkdwp_wfreversecache.table.gz (70/43/fopen): adding to final database dump
+0009.326 (0) backup_2021-11-16-0741_grupo2ciber_338dcb649156-db-table-mkdwp_wfsnipcache.table.tmpr0.gz (71/43/fopen): adding to final database dump
+0009.332 (0) backup_2021-11-16-0741_grupo2ciber_338dcb649156-db-table-mkdwp_wfsnipcache.table.gz (72/43/fopen): adding to final database dump
+0009.333 (0) backup_2021-11-16-0741_grupo2ciber_338dcb649156-db-table-mkdwp_wfstatus.table.tmpr0.gz (73/43/fopen): adding to final database dump
+0009.335 (0) backup_2021-11-16-0741_grupo2ciber_338dcb649156-db-table-mkdwp_wfstatus.table.gz (74/43/fopen): adding to final database dump
+0009.336 (0) backup_2021-11-16-0741_grupo2ciber_338dcb649156-db-table-mkdwp_wftrafficrates.table.tmpr1.gz (75/43/fopen): adding to final database dump
+0009.336 (0) backup_2021-11-16-0741_grupo2ciber_338dcb649156-db-table-mkdwp_wftrafficrates.table.gz (76/43/fopen): adding to final database dump
+0009.338 (0) backup_2021-11-16-0741_grupo2ciber_338dcb649156-db.gz: finished writing out complete database file (277.3 KB)
+0009.355 (0) Total database tables backed up: 38 (backup_2021-11-16-0741_grupo2ciber_338dcb649156-db.gz, size: 284030, sha1: e3eae1224dd01158089b3317aeb2c74d57476120, sha256: 3d96afbe24d0ce67064e33ac7fff83bbf2df999290172372f6274a701f387ac8)
+0009.372 (0) backup_2021-11-16-0741_grupo2ciber_338dcb649156-plugins.zip: plugins: This file has not yet been successfully uploaded: will queue
+0009.375 (0) backup_2021-11-16-0741_grupo2ciber_338dcb649156-themes.zip: themes: This file has not yet been successfully uploaded: will queue
+0009.377 (0) backup_2021-11-16-0741_grupo2ciber_338dcb649156-uploads.zip: uploads: This file has not yet been successfully uploaded: will queue
+0009.377 (0) backup_2021-11-16-0741_grupo2ciber_338dcb649156-others.zip: others: This file has not yet been successfully uploaded: will queue
+0009.378 (0) backup_2021-11-16-0741_grupo2ciber_338dcb649156-db.gz: db: This file has not yet been successfully uploaded: will queue
+0009.381 (0) Saving backup history. Total backup size: 26.1 MB
+0009.387 (0) Requesting upload of the files that have not yet been successfully uploaded (5)
+0009.396 (0) Cloud backup selection (1/1): googledrive with instance (1/1) (last)
+0009.404 (0) Beginning dispatch of backup to remote (googledrive) (instance identifier s-28d5ab9cf5600dc87c56abe3a30fcb8b)
+0010.256 (0) Google Drive: creating path: /UpdraftPlus
+0011.415 (0) Google Drive: quota usage: used=82479.9 MB, total=10568239.9 MB, available=10485760 MB
+0011.448 (0) Google Drive: backup_2021-11-16-0741_grupo2ciber_338dcb649156-plugins.zip: Attempting to upload to Google Drive (into folder id: 1rd5BmbftjzxY0p-a2WROhicDnDvgQzEF)
+0017.555 (0) Googledrive chunked upload: 5.8 % uploaded (1048576)
+0018.043 (0) Googledrive chunked upload: 11.5 % uploaded (2097152 - increasing chunk size to 2048 KB - memory usage: 11.8 / 12)
+0018.921 (0) Googledrive chunked upload: 23.1 % uploaded (4194304 - increasing chunk size to 4096 KB - memory usage: 11.8 / 12)
+0019.999 (0) Googledrive chunked upload: 46.1 % uploaded (8388608 - increasing chunk size to 8192 KB - memory usage: 11.8 / 12)
+0022.120 (0) Googledrive chunked upload: 92.3 % uploaded (16777216 - increasing chunk size to 16384 KB - memory usage: 11.8 / 12)
+0023.720 (0) Googledrive chunked upload: 100 % uploaded (16777216)
+0023.731 (0) Google Drive: OK: Archive backup_2021-11-16-0741_grupo2ciber_338dcb649156-plugins.zip uploaded in 11.97 seconds
+0023.734 (0) Recording as successfully uploaded: backup_2021-11-16-0741_grupo2ciber_338dcb649156-plugins.zip
+0023.742 (0) Deleting local file: backup_2021-11-16-0741_grupo2ciber_338dcb649156-plugins.zip: OK
+0023.745 (0) Deleting zip manifest (backup_2021-11-16-0741_grupo2ciber_338dcb649156-plugins.zip.list.tmp)
+0029.180 (0) Google Drive: quota usage: used=82497.2 MB, total=10568257.2 MB, available=10485760 MB
+0029.181 (0) Google Drive: backup_2021-11-16-0741_grupo2ciber_338dcb649156-themes.zip: Attempting to upload to Google Drive (into folder id: 1rd5BmbftjzxY0p-a2WROhicDnDvgQzEF)
+0040.072 (0) Googledrive chunked upload: 17.3 % uploaded (1048576)
+0040.412 (0) Googledrive chunked upload: 34.5 % uploaded (2097152 - increasing chunk size to 2048 KB - memory usage: 11.8 / 12)
+0041.134 (0) Googledrive chunked upload: 69.1 % uploaded (4194304 - increasing chunk size to 4096 KB - memory usage: 11.8 / 12)
+0043.066 (0) Googledrive chunked upload: 100 % uploaded (4194304)
+0043.073 (0) Google Drive: OK: Archive backup_2021-11-16-0741_grupo2ciber_338dcb649156-themes.zip uploaded in 13.89 seconds
+0043.073 (0) Recording as successfully uploaded: backup_2021-11-16-0741_grupo2ciber_338dcb649156-themes.zip
+0043.091 (0) Deleting local file: backup_2021-11-16-0741_grupo2ciber_338dcb649156-themes.zip: OK
+0043.093 (0) Deleting zip manifest (backup_2021-11-16-0741_grupo2ciber_338dcb649156-themes.zip.list.tmp)
+0043.410 (0) Google Drive: quota usage: used=82503 MB, total=10568263 MB, available=10485760 MB
+0043.433 (0) Google Drive: backup_2021-11-16-0741_grupo2ciber_338dcb649156-uploads.zip: Attempting to upload to Google Drive (into folder id: 1rd5BmbftjzxY0p-a2WROhicDnDvgQzEF)
+0045.539 (0) Googledrive chunked upload: 100 % uploaded
+0045.545 (0) Google Drive: OK: Archive backup_2021-11-16-0741_grupo2ciber_338dcb649156-uploads.zip uploaded in 2.11 seconds
+0045.545 (0) Recording as successfully uploaded: backup_2021-11-16-0741_grupo2ciber_338dcb649156-uploads.zip
+0045.548 (0) Deleting local file: backup_2021-11-16-0741_grupo2ciber_338dcb649156-uploads.zip: OK
+0045.548 (0) Deleting zip manifest (backup_2021-11-16-0741_grupo2ciber_338dcb649156-uploads.zip.list.tmp)
+0045.929 (0) Google Drive: quota usage: used=82503.1 MB, total=10568263.1 MB, available=10485760 MB
+0045.932 (0) Google Drive: backup_2021-11-16-0741_grupo2ciber_338dcb649156-others.zip: Attempting to upload to Google Drive (into folder id: 1rd5BmbftjzxY0p-a2WROhicDnDvgQzEF)
+0051.775 (0) Googledrive chunked upload: 37.5 % uploaded (1048576)
+0052.195 (0) Googledrive chunked upload: 75.1 % uploaded (2097152 - increasing chunk size to 2048 KB - memory usage: 11.8 / 14)
+0053.351 (0) Googledrive chunked upload: 100 % uploaded (2097152)
+0053.358 (0) Google Drive: OK: Archive backup_2021-11-16-0741_grupo2ciber_338dcb649156-others.zip uploaded in 7.42 seconds
+0053.359 (0) Recording as successfully uploaded: backup_2021-11-16-0741_grupo2ciber_338dcb649156-others.zip
+0053.363 (0) Deleting local file: backup_2021-11-16-0741_grupo2ciber_338dcb649156-others.zip: OK
+0053.364 (0) Deleting zip manifest (backup_2021-11-16-0741_grupo2ciber_338dcb649156-others.zip.list.tmp)
+0053.742 (0) Google Drive: quota usage: used=82505.8 MB, total=10568265.8 MB, available=10485760 MB
+0053.744 (0) Google Drive: backup_2021-11-16-0741_grupo2ciber_338dcb649156-db.gz: Attempting to upload to Google Drive (into folder id: 1rd5BmbftjzxY0p-a2WROhicDnDvgQzEF)
+0055.666 (0) Googledrive chunked upload: 100 % uploaded
+0055.683 (0) Google Drive: OK: Archive backup_2021-11-16-0741_grupo2ciber_338dcb649156-db.gz uploaded in 1.94 seconds
+0055.691 (0) Recording as successfully uploaded: backup_2021-11-16-0741_grupo2ciber_338dcb649156-db.gz
+0055.705 (0) Deleting local file: backup_2021-11-16-0741_grupo2ciber_338dcb649156-db.gz: OK
+0055.723 (0) Retain: beginning examination of existing backup sets; user setting: retain_files=2, retain_db=2
+0055.726 (0) Number of backup sets in history: 3; groups (db): 1
+0055.730 (0) Examining (for databases) backup set with group_id=0, nonce=338dcb649156, datestamp=1637048466 (Nov 16 2021 07:41:06)
+0055.740 (0) This backup set is the backup set just made, so will not be deleted.
+0055.740 (0) Examining (for databases) backup set with group_id=0, nonce=0287809def52, datestamp=1637047219 (Nov 16 2021 07:20:19)
+0055.740 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0055.742 (0) Examining (for databases) backup set with group_id=0, nonce=227e0f5c9eba, datestamp=1637047165 (Nov 16 2021 07:19:25)
+0055.742 (0) 1637047165: db: this set includes a database (backup_2021-11-16-0719_grupo2ciber_227e0f5c9eba-db.gz); db count is now 2
+0055.742 (0) 1637047165: db: over retain limit (2); will delete this database
+0055.742 (0) Delete file: backup_2021-11-16-0719_grupo2ciber_227e0f5c9eba-db.gz, service=googledrive
+0055.744 (0) Deleting local copy (backup_2021-11-16-0719_grupo2ciber_227e0f5c9eba-db.gz)
+0056.635 (0) Google Drive: backup_2021-11-16-0719_grupo2ciber_227e0f5c9eba-db.gz: Deletion failed: file was not found
+0056.644 (0) This backup set remains non-empty (f=1/d=0); will retain in history
+0056.649 (0) Number of backup sets in history: 3; groups (files): 1
+0056.653 (0) Examining (for files) backup set with nonce=338dcb649156, datestamp=1637048466 (Nov 16 2021 07:41:06)
+0056.653 (0) This backup set is the backup set just made, so will not be deleted.
+0056.656 (0) This backup set is the backup set just made, so will not be deleted.
+0056.656 (0) This backup set is the backup set just made, so will not be deleted.
+0056.656 (0) This backup set is the backup set just made, so will not be deleted.
+0056.656 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0056.659 (0) Examining (for files) backup set with nonce=0287809def52, datestamp=1637047219 (Nov 16 2021 07:20:19)
+0056.659 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0056.659 (0) Examining (for files) backup set with nonce=227e0f5c9eba, datestamp=1637047165 (Nov 16 2021 07:19:25)
+0056.659 (0) plugins: over retain limit (2); will delete this file entity
+0056.659 (0) themes: over retain limit (2); will delete this file entity
+0056.659 (0) uploads: over retain limit (2); will delete this file entity
+0056.659 (0) others: over retain limit (2); will delete this file entity
+0056.660 (0) Delete file: backup_2021-11-16-0719_grupo2ciber_227e0f5c9eba-plugins.zip, service=googledrive
+0056.665 (0) Deleting local copy (backup_2021-11-16-0719_grupo2ciber_227e0f5c9eba-plugins.zip)
+0056.668 (0) Delete file: backup_2021-11-16-0719_grupo2ciber_227e0f5c9eba-themes.zip, service=googledrive
+0056.672 (0) Deleting local copy (backup_2021-11-16-0719_grupo2ciber_227e0f5c9eba-themes.zip)
+0056.675 (0) Delete file: backup_2021-11-16-0719_grupo2ciber_227e0f5c9eba-uploads.zip, service=googledrive
+0056.677 (0) Deleting local copy (backup_2021-11-16-0719_grupo2ciber_227e0f5c9eba-uploads.zip)
+0056.681 (0) Delete file: backup_2021-11-16-0719_grupo2ciber_227e0f5c9eba-others.zip, service=googledrive
+0056.682 (0) Deleting local copy (backup_2021-11-16-0719_grupo2ciber_227e0f5c9eba-others.zip)
+0057.135 (0) Google Drive: backup_2021-11-16-0719_grupo2ciber_227e0f5c9eba-plugins.zip: Deletion failed: file was not found
+0057.139 (0) Google Drive: backup_2021-11-16-0719_grupo2ciber_227e0f5c9eba-themes.zip: Deletion failed: file was not found
+0057.141 (0) Google Drive: backup_2021-11-16-0719_grupo2ciber_227e0f5c9eba-uploads.zip: Deletion failed: file was not found
+0057.141 (0) Google Drive: backup_2021-11-16-0719_grupo2ciber_227e0f5c9eba-others.zip: Deletion failed: file was not found
+0057.144 (0) This backup set is now empty; will remove from history
+0057.144 (0) Deleting log file (log.227e0f5c9eba.txt)
+0057.145 (0) Retain: saving new backup history (sets now: 2) and finishing retain operation
+0057.193 (0) Resume backup (338dcb649156, 0): finish run
+0057.207 (0) Decremented the semaphore (fd) by 1
+0057.217 (0) Semaphore (fd) unlocked
+0057.219 (0) There were no errors in the uploads, so the 'resume' event (1) is being unscheduled
+0057.231 (0) No email will/can be sent - the user has not configured an email address.
+0057.233 (0) The backup apparently succeeded and is now complete

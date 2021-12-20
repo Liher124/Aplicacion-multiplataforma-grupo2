@@ -1,8 +1,0 @@
-<?php
-session_start(); 
-echo "Usuario: ".$_SESSION["usuario"];
-echo "Id: ".$_SESSION["id"];
-echo "Rol: ".$_SESSION["rol"];
-
-
-?>
